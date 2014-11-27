@@ -1,26 +1,114 @@
-// main: lightgrid.less
+// main: app.less
 
 /* ----------------------------------------------------------------
  * form.less
  * 
- * Basic form elements shim is defined here
+ * Form components are here
  * ---------------------------------------------------------------- */
 
-input, select, textarea {
-	margin: 0;
-	padding: 4px;
+/*
+ * $imports
+ */
+@import 'colors.less';
+@import 'typography.less';
+
+
+// Resets inputs across browsers
+input, textarea, button, .error {
 	display: inline-block;
 	
-	font-family: @body-font;
+	font-family: 'Helvetica Neue', 'Lucida Sans Unicode';
 	
+	border:none;
+	width:100%;
 	box-sizing: border-box;
+	margin: 6px 0;
 }
 
-input[type="button"], input[type="submit"], button {
-	padding: 4px 8px;
+input[type="button"], input[type="submit"], button, .error {
+	display: inline-block;
+	padding: 4px 14px;
 	
-	background-color: #EEE;
-	border:#BBB solid 2px;
-	
-	box-sizing: border-box;
+	color:#FFF;
+	background-color: #3498DB;
+	border:#3498DB solid 2px;
+	border-radius: 3px;
+	background-clip: padding-box;
+}
+
+input[type="button"]:hover, input[type="submit"]:hover, button:hover {
+	border-color: @button-dark;
+}
+
+input[type="button"]:active, input[type="submit"]:active, button:active {
+	border-color: @button-dark;
+	background-color: @button-dark;
+}
+
+input[type="button"]:focus, input[type="submit"]:focus, button:focus {
+	outline: none;
+	border-color: @focus;
+}
+
+input[type="text"], input[type="password"], input[type="email"], input[type="number"] {
+	padding: 4px 14px;
+	border:@border-light-color solid 2px;
+	border-radius: 3px;
+}
+
+input[type="text"]:active, input[type="password"]:active, input[type="email"]:active {
+	outline: none;
+	border-color: @focus;
+}
+
+input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focus {
+	outline: none;
+	border-color: @focus;
+}
+
+.positive {
+	background-color: @positive!important;
+	border-color:@positive!important;
+}
+
+.positive:hover {
+	border-color:@positive-dark!important;
+}
+
+.positive:active {
+	border-color: @positive-dark!important;
+	background-color: @positive-dark!important;
+}
+
+.positive:focus {
+	border-color: @focus!important;
+}
+
+.hidden {
+	display: none;
+}
+
+.error {
+	font-size: @text-size;
+	border-color: #DDD;
+	background-color: #FFFCA3;
+	color: #F26B1D;
+}
+
+textarea {
+	padding: 4px 14px;
+	border:@border-light-color solid 2px;
+	border-radius: 3px;
+}
+
+textarea:focus {
+	outline: none;
+	border-color: @focus;
+}
+
+label {
+	display: inline-block;
+	margin-top: 6px;
+	font-size: @text-size;
+	font-weight: 700;
 }

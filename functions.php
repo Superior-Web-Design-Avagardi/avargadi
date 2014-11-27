@@ -36,3 +36,31 @@ function samplechildtheme_setup() {
 }
 add_action( 'after_setup_theme', 'samplechildtheme_setup' );
 
+
+/*
+ * Custom theme  modifications
+ */
+function add_fonts() {
+	echo "<link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>";
+}
+add_action( 'thematic_before', 'add_fonts');
+
+
+function modify_header() {
+	echo '<div id="header"><nav id="header-nav" class="clearfix">';
+}
+
+function modify_header_bottom() {
+	echo '</nav></div>';
+}
+
+
+add_filter('thematic_open_header','modify_header');
+add_filter('thematic_close_header','modify_header_bottom');
+
+
+
+require_once ( get_stylesheet_directory() . '/theme-options.php' );
+
+
+

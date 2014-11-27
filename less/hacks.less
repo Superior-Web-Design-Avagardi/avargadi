@@ -1,0 +1,16 @@
+// main: app.less
+
+/* ----------------------------------------------------------------
+ * hacks.less
+ * 
+ * Fights IE compatibility issues
+ * ---------------------------------------------------------------- */
+
+@media all and (-ms-high-contrast:none) {
+	input[type='button'],  input[type='submit'], button, .error {
+		background-clip: border-box;
+	}
+	*::-ms-backdrop, input[type='button'],  input[type='submit'], button, .error {
+		background-clip: border-box;
+	}
+}
