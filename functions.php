@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Custom Child Theme Functions
  *
@@ -48,7 +49,11 @@ add_action('wp_head', 'add_fonts');
 
 
 function modify_header() {
-	echo '<div id="header"><nav id="header-nav" class="clearfix">';
+	if (is_page('Shop')) {
+		echo '<h1>Cocker</h1>';	
+	} else {
+		echo '<div id="header"><nav id="header-nav" class="clearfix">';
+	}
 }
 
 function modify_header_bottom() {
@@ -139,7 +144,11 @@ function childtheme_admin() {
 if(get_option('child_theme_logo_enabled')) {
 	
 	function thematic_logo_image() {
-		echo '<div id="header" style=background-image:url("'.get_option('child_theme_image').'") ><nav id="header-nav" class="clearfix">';
+		if(is_home() || is_page('Shop')) {
+			echo '<div id="header" class="expanded" style=background-image:url("'.get_option('child_theme_image').'") ><nav id="header-nav" class="clearfix">';
+		} else {
+			echo '<div id="header" style=background-image:url("'.get_option('child_theme_image').'") ><nav id="header-nav" class="clearfix">';
+		}
 	}
 	add_filter('thematic_open_header','thematic_logo_image');
 } else {
