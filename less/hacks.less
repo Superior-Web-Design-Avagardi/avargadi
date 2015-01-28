@@ -3,7 +3,7 @@
 /* ----------------------------------------------------------------
  * hacks.less
  * 
- * Fights IE compatibility issues
+ * Fights IE compatibility issues and random theme stuff
  * ---------------------------------------------------------------- */
 
 @media all and (-ms-high-contrast:none) {
@@ -13,4 +13,12 @@
 	*::-ms-backdrop, input[type='button'],  input[type='submit'], button, .error {
 		background-clip: border-box;
 	}
+}
+
+mark {
+	display: none;
+}
+
+.home .page-title {
+	display: none;
 }

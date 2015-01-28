@@ -80,104 +80,6 @@ a {
 /*
  * $imports
  */
-input,
-textarea,
-button,
-.error {
-  display: inline-block;
-  font-family: 'Helvetica Neue', 'Lucida Sans Unicode';
-  border: none;
-  width: 100%;
-  box-sizing: border-box;
-  margin: 6px 0;
-}
-input[type="button"],
-input[type="submit"],
-button,
-.error {
-  display: inline-block;
-  padding: 4px 14px;
-  color: #FFF;
-  background-color: #3498DB;
-  border: #3498DB solid 2px;
-  border-radius: 3px;
-  background-clip: padding-box;
-}
-input[type="button"]:hover,
-input[type="submit"]:hover,
-button:hover {
-  border-color: #2383c4;
-}
-input[type="button"]:active,
-input[type="submit"]:active,
-button:active {
-  border-color: #2383c4;
-  background-color: #2383c4;
-}
-input[type="button"]:focus,
-input[type="submit"]:focus,
-button:focus {
-  outline: none;
-  border-color: #f1c40f;
-}
-input[type="text"],
-input[type="password"],
-input[type="email"],
-input[type="number"] {
-  padding: 4px 14px;
-  border: rgba(0, 0, 0, 0.2) solid 2px;
-  border-radius: 3px;
-}
-input[type="text"]:active,
-input[type="password"]:active,
-input[type="email"]:active {
-  outline: none;
-  border-color: #f1c40f;
-}
-input[type="text"]:focus,
-input[type="password"]:focus,
-input[type="email"]:focus {
-  outline: none;
-  border-color: #f1c40f;
-}
-.positive {
-  background-color: #94db65 !important;
-  border-color: #94db65 !important;
-}
-.positive:hover {
-  border-color: #7ed343 !important;
-}
-.positive:active {
-  border-color: #7ed343 !important;
-  background-color: #7ed343 !important;
-}
-.positive:focus {
-  border-color: #f1c40f !important;
-}
-.hidden {
-  display: none;
-}
-.error {
-  font-size: 0.9em;
-  border-color: #DDD;
-  background-color: #FFFCA3;
-  color: #F26B1D;
-}
-textarea {
-  padding: 4px 14px;
-  border: rgba(0, 0, 0, 0.2) solid 2px;
-  border-radius: 3px;
-}
-textarea:focus {
-  outline: none;
-  border-color: #f1c40f;
-}
-label {
-  display: inline-block;
-  margin-top: 6px;
-  font-size: 0.9em;
-  font-weight: 700;
-}
 /* ----------------------------------------------------------------
  * typography.less
  * 
@@ -283,6 +185,104 @@ sub {
 }
 sub {
   top: 0.4em;
+}
+input,
+textarea,
+button,
+.error {
+  display: inline-block;
+  font-family: 'Helvetica Neue', 'Lucida Sans Unicode';
+  border: none;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 6px 0;
+}
+input[type="button"],
+input[type="submit"],
+button,
+.error {
+  display: inline-block;
+  padding: 4px 14px;
+  color: #FFF;
+  background-color: #3498DB;
+  border: #3498DB solid 2px;
+  border-radius: 3px;
+  background-clip: padding-box;
+}
+input[type="button"]:hover,
+input[type="submit"]:hover,
+button:hover {
+  border-color: #2383c4;
+}
+input[type="button"]:active,
+input[type="submit"]:active,
+button:active {
+  border-color: #2383c4;
+  background-color: #2383c4;
+}
+input[type="button"]:focus,
+input[type="submit"]:focus,
+button:focus {
+  outline: none;
+  border-color: #f1c40f;
+}
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="number"] {
+  padding: 4px 14px;
+  border: rgba(0, 0, 0, 0.2) solid 2px;
+  border-radius: 3px;
+}
+input[type="text"]:active,
+input[type="password"]:active,
+input[type="email"]:active {
+  outline: none;
+  border-color: #f1c40f;
+}
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus {
+  outline: none;
+  border-color: #f1c40f;
+}
+.positive {
+  background-color: #94db65 !important;
+  border-color: #94db65 !important;
+}
+.positive:hover {
+  border-color: #7ed343 !important;
+}
+.positive:active {
+  border-color: #7ed343 !important;
+  background-color: #7ed343 !important;
+}
+.positive:focus {
+  border-color: #f1c40f !important;
+}
+.hidden {
+  display: none;
+}
+.error {
+  font-size: 0.9em;
+  border-color: #DDD;
+  background-color: #FFFCA3;
+  color: #F26B1D;
+}
+textarea {
+  padding: 4px 14px;
+  border: rgba(0, 0, 0, 0.2) solid 2px;
+  border-radius: 3px;
+}
+textarea:focus {
+  outline: none;
+  border-color: #f1c40f;
+}
+label {
+  display: inline-block;
+  margin-top: 6px;
+  font-size: 0.9em;
+  font-weight: 700;
 }
 /* ----------------------------------------------------------------
  * grid.less
@@ -443,7 +443,7 @@ body,
   clear: both;
 }
 #header-nav {
-  width: 65%;
+  width: 70%;
   margin: 0 auto;
   padding: 32px 0;
 }
@@ -495,15 +495,15 @@ body,
  * $main
  * ---------------------------------------------------------------- */
 #container {
-  width: 65%;
+  width: 100%;
   margin: 0 auto;
 }
 #primary {
-  width: 65%;
+  width: 100%;
   margin: 0 auto;
 }
 #secondary {
-  width: 65%;
+  width: 100%;
   margin: 0 auto;
 }
 .preview {
@@ -539,12 +539,40 @@ li.product-category > a {
  * $sidebars
  * ---------------------------------------------------------------- */
 #primary {
-  width: 65%;
+  width: 100%;
   margin: 0 auto;
 }
 #secondary {
-  width: 65%;
+  width: 100%;
   margin: 0 auto;
+}
+/* ----------------------------------------------------------------
+ * $home page categories
+ * ---------------------------------------------------------------- */
+.product-category.product {
+  width: 80%!important;
+  margin: 0 auto!important;
+  padding: 32px 0!important;
+}
+.product-category.product:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+.product-category.product a {
+  width: 100%;
+}
+.product-category.product img {
+  float: left;
+  display: inline-block;
+  width: 40%!important;
+}
+.product-category.product h3 {
+  text-align: right;
+  font-size: 32px!important;
+}
+.shop-cat-desc {
+  text-align: right;
 }
 /* ----------------------------------------------------------------
  * $footer
@@ -559,13 +587,13 @@ li.product-category > a {
   text-decoration: underline;
 }
 #siteinfo {
-  width: 65%;
+  width: 70%;
   margin: 0 auto;
 }
 /* ----------------------------------------------------------------
  * hacks.less
  * 
- * Fights IE compatibility issues
+ * Fights IE compatibility issues and random theme stuff
  * ---------------------------------------------------------------- */
 @media all and (-ms-high-contrast: none) {
   input[type='button'],
@@ -581,6 +609,12 @@ li.product-category > a {
   .error {
     background-clip: border-box;
   }
+}
+mark {
+  display: none;
+}
+.home .page-title {
+  display: none;
 }
 /* ----------------------------------------------------------------
  * media-queries.less

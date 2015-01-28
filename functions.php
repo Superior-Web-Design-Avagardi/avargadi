@@ -156,4 +156,23 @@ if(get_option('child_theme_logo_enabled')) {
 }
 
 
+/*function modify_homepage_content() {
+	echo '<h1>Haaaa</h1>';
+}
+
+add_filter('thematic_opencontainer', 'modify_homepage_content');*/
+
+//Display product category descriptions under category image/title on woocommerce shop page */
+
+function my_add_cat_description ($category) {
+	$cat_id=$category->term_id;
+	$prod_term=get_term($cat_id,'product_cat');
+	$description=$prod_term->description;
+	echo '<div class="shop-cat-desc">'.$description.'</div>';
+}
+
+
+add_action( 'woocommerce_after_subcategory_title', 'my_add_cat_description', 12);
+
+
 add_filter('thematic_close_header','modify_header_bottom');
