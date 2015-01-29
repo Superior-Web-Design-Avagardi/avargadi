@@ -80,6 +80,104 @@ a {
 /*
  * $imports
  */
+input,
+textarea,
+button,
+.error {
+  display: inline-block;
+  font-family: 'Helvetica Neue', 'Lucida Sans Unicode';
+  border: none;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 6px 0;
+}
+input[type="button"],
+input[type="submit"],
+button,
+.error {
+  display: inline-block;
+  padding: 4px 14px;
+  color: #FFF;
+  background-color: #3498DB;
+  border: #3498DB solid 2px;
+  border-radius: 3px;
+  background-clip: padding-box;
+}
+input[type="button"]:hover,
+input[type="submit"]:hover,
+button:hover {
+  border-color: #2383c4;
+}
+input[type="button"]:active,
+input[type="submit"]:active,
+button:active {
+  border-color: #2383c4;
+  background-color: #2383c4;
+}
+input[type="button"]:focus,
+input[type="submit"]:focus,
+button:focus {
+  outline: none;
+  border-color: #f1c40f;
+}
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="number"] {
+  padding: 4px 14px;
+  border: rgba(0, 0, 0, 0.2) solid 2px;
+  border-radius: 3px;
+}
+input[type="text"]:active,
+input[type="password"]:active,
+input[type="email"]:active {
+  outline: none;
+  border-color: #f1c40f;
+}
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus {
+  outline: none;
+  border-color: #f1c40f;
+}
+.positive {
+  background-color: #94db65 !important;
+  border-color: #94db65 !important;
+}
+.positive:hover {
+  border-color: #7ed343 !important;
+}
+.positive:active {
+  border-color: #7ed343 !important;
+  background-color: #7ed343 !important;
+}
+.positive:focus {
+  border-color: #f1c40f !important;
+}
+.hidden {
+  display: none;
+}
+.error {
+  font-size: 0.9em;
+  border-color: #DDD;
+  background-color: #FFFCA3;
+  color: #F26B1D;
+}
+textarea {
+  padding: 4px 14px;
+  border: rgba(0, 0, 0, 0.2) solid 2px;
+  border-radius: 3px;
+}
+textarea:focus {
+  outline: none;
+  border-color: #f1c40f;
+}
+label {
+  display: inline-block;
+  margin-top: 6px;
+  font-size: 0.9em;
+  font-weight: 700;
+}
 /* ----------------------------------------------------------------
  * typography.less
  * 
@@ -185,104 +283,6 @@ sub {
 }
 sub {
   top: 0.4em;
-}
-input,
-textarea,
-button,
-.error {
-  display: inline-block;
-  font-family: 'Helvetica Neue', 'Lucida Sans Unicode';
-  border: none;
-  width: 100%;
-  box-sizing: border-box;
-  margin: 6px 0;
-}
-input[type="button"],
-input[type="submit"],
-button,
-.error {
-  display: inline-block;
-  padding: 4px 14px;
-  color: #FFF;
-  background-color: #3498DB;
-  border: #3498DB solid 2px;
-  border-radius: 3px;
-  background-clip: padding-box;
-}
-input[type="button"]:hover,
-input[type="submit"]:hover,
-button:hover {
-  border-color: #2383c4;
-}
-input[type="button"]:active,
-input[type="submit"]:active,
-button:active {
-  border-color: #2383c4;
-  background-color: #2383c4;
-}
-input[type="button"]:focus,
-input[type="submit"]:focus,
-button:focus {
-  outline: none;
-  border-color: #f1c40f;
-}
-input[type="text"],
-input[type="password"],
-input[type="email"],
-input[type="number"] {
-  padding: 4px 14px;
-  border: rgba(0, 0, 0, 0.2) solid 2px;
-  border-radius: 3px;
-}
-input[type="text"]:active,
-input[type="password"]:active,
-input[type="email"]:active {
-  outline: none;
-  border-color: #f1c40f;
-}
-input[type="text"]:focus,
-input[type="password"]:focus,
-input[type="email"]:focus {
-  outline: none;
-  border-color: #f1c40f;
-}
-.positive {
-  background-color: #94db65 !important;
-  border-color: #94db65 !important;
-}
-.positive:hover {
-  border-color: #7ed343 !important;
-}
-.positive:active {
-  border-color: #7ed343 !important;
-  background-color: #7ed343 !important;
-}
-.positive:focus {
-  border-color: #f1c40f !important;
-}
-.hidden {
-  display: none;
-}
-.error {
-  font-size: 0.9em;
-  border-color: #DDD;
-  background-color: #FFFCA3;
-  color: #F26B1D;
-}
-textarea {
-  padding: 4px 14px;
-  border: rgba(0, 0, 0, 0.2) solid 2px;
-  border-radius: 3px;
-}
-textarea:focus {
-  outline: none;
-  border-color: #f1c40f;
-}
-label {
-  display: inline-block;
-  margin-top: 6px;
-  font-size: 0.9em;
-  font-weight: 700;
 }
 /* ----------------------------------------------------------------
  * grid.less
@@ -568,11 +568,30 @@ li.product-category > a {
   width: 40%!important;
 }
 .product-category.product h3 {
+  padding-top: 32px!important;
   text-align: right;
-  font-size: 32px!important;
+  font-size: 48px!important;
 }
 .shop-cat-desc {
   text-align: right;
+}
+.button-buy {
+  display: inline!important;
+  width: auto!important;
+  margin: 8px 0!important;
+  text-align: left;
+  padding: 12px;
+  font-weight: bold;
+  background-color: #fce568;
+}
+.product-category.product:nth-child(odd) img {
+  float: right;
+}
+.product-category.product:nth-child(odd) h3 {
+  text-align: left;
+}
+.product-category.product:nth-child(odd) .shop-cat-desc {
+  text-align: left;
 }
 /* ----------------------------------------------------------------
  * $footer
