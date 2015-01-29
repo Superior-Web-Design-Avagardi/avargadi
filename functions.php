@@ -43,7 +43,7 @@ add_action( 'after_setup_theme', 'samplechildtheme_setup' );
  */
 
 function add_fonts() { ?>
-	<link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Maven+Pro:500,400' rel='stylesheet' type='text/css'>
 <?php }
 add_action('wp_head', 'add_fonts');
 
