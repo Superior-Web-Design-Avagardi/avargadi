@@ -64,9 +64,14 @@ function modify_header_bottom() {
 	echo '</nav></div>';
 }
 
+/* Remove the 'showing xx results' on the category page */
+remove_action( 'woocommerce_before_shop_loop', 'woocommerce_result_count', 20 );
 
-
-
+/* Remove breadcrumbs */
+add_action( 'init', 'jk_remove_wc_breadcrumbs' );
+function jk_remove_wc_breadcrumbs() {
+    remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20, 0 );
+}
 
 // ---------- "Child Theme Options" menu STARTS HERE
 

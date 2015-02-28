@@ -461,16 +461,10 @@ body,
   float: right;
 }
 #blog-title {
-  
   background-image: url("img/logo.png");
   background-repeat: no-repeat;
   width: 250px;
   height: 88px;
-}
-
-#blog-title a{
-    color: transparent;
-    text-shadow: none!important;
 }
 #blog-title a {
   color: transparent;
