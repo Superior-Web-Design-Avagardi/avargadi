@@ -176,3 +176,15 @@ add_action( 'woocommerce_after_subcategory_title', 'my_add_cat_description', 12)
 
 
 add_filter('thematic_close_header','modify_header_bottom');
+
+/* removes the breadcrumbs */
+add_action( 'init', 'jk_remove_wc_breadcrumbs' );
+function jk_remove_wc_breadcrumbs() {
+    remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20, 0 );
+}
+
+add_filter('woocommerce_product_description_heading', 'hurr');
+function hurr() {
+}
+
+remove_action( 'woocommerce_before_shop_loop', 'woocommerce_result_count', 20 );

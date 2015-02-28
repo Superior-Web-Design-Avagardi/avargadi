@@ -428,10 +428,6 @@ body,
 /* ----------------------------------------------------------------
  * $header
  * ---------------------------------------------------------------- */
-#header.small {
-  background-color: #f30;
-  font-size: .2em;
-}
 .home #header {
   width: 100%;
   background-color: #999;
@@ -553,9 +549,12 @@ li.product-category > a {
 /* ----------------------------------------------------------------
  * $home page categories
  * ---------------------------------------------------------------- */
-.product-category.product,
 #content {
-  width: 80%!important;
+  width: 70%;
+  margin: 0 auto;
+}
+.product-category.product {
+  width: 80%;
   height: 100%;
   margin: 0 auto!important;
   padding: 32px 0!important;
@@ -591,6 +590,16 @@ li.product-category > a {
   background-color: #eacd2e;
   font-size: 20px;
   font-weight: bold;
+}
+.page-title {
+  margin: 32px 0;
+  text-align: center;
+  font-size: 3em;
+}
+.term-description {
+  margin: 0;
+  margin-bottom: 48px;
+  text-align: center;
 }
 /* ----------------------------------------------------------------
  * $footer
