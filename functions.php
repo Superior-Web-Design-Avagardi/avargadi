@@ -65,18 +65,29 @@ function modify_header_bottom() {
 	echo '</nav></div>';
 }
 
-
 // ------------ Footer
-
-function modify_footer(){
-    echo 'Hi';
+function childtheme_override_siteinfoopen(){
+    echo '';
 }
-add_action('thematic_footer', 'modify_footer');
 
-function remove_stuff(){
-remove_action('hook_location','function_you_want_to_remove',$priority );
+function childtheme_override_siteinfoclose(){
+    echo '';
 }
-add_action('init','remove_stuff');
+
+function childtheme_override_siteinfo(){
+    echo '<div class="footer-inner row">
+            <div class="col-4">
+            Copyright
+            </div>
+            <div class="col-4">
+            Legal
+            </div>
+            <div class="col-4 last">
+            Social Media
+            </div>
+          </div>
+            ';
+}
 
 
 /* Remove the 'showing xx results' on the category page */
