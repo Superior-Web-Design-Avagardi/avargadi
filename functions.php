@@ -118,16 +118,17 @@ function childtheme_admin() {
 			<h2>Child Theme Options</h2>
 			<form name="theform" method="post" enctype="multipart/form-data" action="<?php echo str_replace( '%7E', '~', $_SERVER['REQUEST_URI']);?>">
 				<table class="form-table">
+                    			<tr><h2>Background Image</h2></tr>
 					<tr>
-						<td width="200">Use logo image instead of blog title and description:</td>
+						<td width="200">Check this box to display background image:</td>
 						<td><input type="checkbox" name="enabled" value="1" <?php echo $checked; ?>/></td>
 					</tr>
 					<tr>
-						<td>Current image:</td>
+						<td>Background image:</td>
 						<td><img style="width:256px;height:auto" src="<?php echo $child_theme_image; ?>" /></td>
 					</tr>
 					<tr>
-						<td>Logo image to use (gif/jpeg/png):</td>
+						<td>Background image to use (gif/jpeg/png):</td>
 						<td><input type="file" name="logo_image"><br />(you must have writing permissions for your uploads directory)</td>
 					</tr>
 				</table>
