@@ -53,11 +53,12 @@ add_action('wp_head', 'add_fonts');
 
 
 function modify_header() {
-	if (is_page('Shop')) {
-		echo '<h1>Cocker</h1>';	
+	echo '<div id="header"><nav id="header-nav" class="clearfix">';
+	/*if (is_page('Shop')) {
+		echo '<h';	
 	} else {
 		echo '<div id="header"><nav id="header-nav" class="clearfix">';
-	}
+	}*/
 }
 
 function modify_header_bottom() {
