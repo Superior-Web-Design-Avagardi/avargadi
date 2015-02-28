@@ -65,6 +65,19 @@ function modify_header_bottom() {
 	echo '</nav></div>';
 }
 
+// ------------ Footer
+
+function modify_footer(){
+    echo 'Hi';
+}
+add_action('thematic_footer', 'modify_footer');
+
+function remove_stuff(){
+remove_action('hook_location','function_you_want_to_remove',$priority );
+}
+add_action('init','remove_stuff');
+
+
 /* Remove the 'showing xx results' on the category page */
 remove_action( 'woocommerce_before_shop_loop', 'woocommerce_result_count', 20 );
 
