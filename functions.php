@@ -50,7 +50,7 @@ add_action('wp_head', 'add_fonts');
 
 function modify_header() {
 	if (is_page('Shop')) {
-		echo '<h1>Cocker</h1>';	
+		echo '<div id="header small"><nav id="header-nav" class="clearfix">';	
 	} else {
 		echo '<div id="header"><nav id="header-nav" class="clearfix">';
 	}
