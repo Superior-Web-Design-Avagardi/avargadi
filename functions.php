@@ -65,6 +65,7 @@ function modify_header_bottom() {
 	echo '</nav></div>';
 }
 
+
 // ------------ Footer
 
 function modify_footer(){
