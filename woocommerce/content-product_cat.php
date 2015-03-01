@@ -23,6 +23,7 @@ if ( empty( $woocommerce_loop['columns'] ) )
 
 // Increase loop count
 $woocommerce_loop['loop']++;
+
 ?>
 <li class="product-category product<?php
     if ( ( $woocommerce_loop['loop'] - 1 ) % $woocommerce_loop['columns'] == 0 || $woocommerce_loop['columns'] == 1 )
@@ -30,9 +31,9 @@ $woocommerce_loop['loop']++;
 	if ( $woocommerce_loop['loop'] % $woocommerce_loop['columns'] == 0 )
 		echo ' last';
 	?> clearfix">
+	
 
 	<?php do_action( 'woocommerce_before_subcategory', $category ); ?>
-
 	
 		<section class="image-container">
 		<?php

@@ -86,6 +86,7 @@ function jk_remove_wc_breadcrumbs() {
     remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20, 0 );
 }
 
+
 // ---------- "Child Theme Options" menu STARTS HERE
 
 add_action('admin_menu' , 'childtheme_add_admin');
