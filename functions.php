@@ -46,6 +46,17 @@ add_action( 'after_setup_theme', 'samplechildtheme_setup' );
  * Custom theme  modifications
  */
 
+
+ //-------------- Defines New Menu
+ // register two additional custom menus
+function childtheme_register_menus() {
+    if (function_exists( 'register_nav_menu' )) {
+        echo '';
+    }
+}
+add_action('thematic_child_init', 'childtheme_register_menus');
+
+
 function add_fonts() { ?>
 	<link href='http://fonts.googleapis.com/css?family=Maven+Pro:500,400' rel='stylesheet' type='text/css'>
 <?php }
@@ -63,30 +74,6 @@ function modify_header() {
 
 function modify_header_bottom() {
 	echo '</nav></div>';
-}
-
-// ------------ Footer
-function childtheme_override_siteinfoopen(){
-    echo '';
-}
-
-function childtheme_override_siteinfoclose(){
-    echo '';
-}
-
-function childtheme_override_siteinfo(){
-    echo '<div class="footer-inner row">
-            <div class="col-4">
-            Copyright
-            </div>
-            <div class="col-4">
-            Legal
-            </div>
-            <div class="col-4 last">
-            Social Media
-            </div>
-          </div>
-            ';
 }
 
 
@@ -108,22 +95,44 @@ function childtheme_add_admin() {
 
 function childtheme_admin() {
 	
-	$child_theme_image       = get_option('child_theme_image');
-    $child_theme_header_logo = get_option('child_theme_header_logo');
+	$child_theme_image       = get_option('child_theme_image'); //Background Image
+    $child_theme_header_logo = get_option('child_theme_header_logo'); //Logo Image
+    $child_theme_footer_1    = get_option('child_theme_footer_1');
+    $child_theme_footer_2    = get_option('child_theme_footer_2');
+    $child_theme_footer_3    = get_option('child_theme_footer_3');
+    $child_theme_copyright   = get_option('child_theme_copyright');
 	$enabled = TRUE; /* get_option('child_theme_logo_enabled'); */
 	
 	if ($_POST['options-submit']){
 		$enabled = htmlspecialchars($_POST['enabled']);
 		update_option('child_theme_logo_enabled', $enabled);
 
-		$file_name = $_FILES['logo_image']['name'];
-		$temp_file = $_FILES['logo_image']['tmp_name'];
-		$file_type = $_FILES['logo_image']['type'];
+		$file_name = $_FILES['logo_image']['name']; //Background Image
+		$temp_file = $_FILES['logo_image']['tmp_name']; //Background Image
+		$file_type = $_FILES['logo_image']['type']; //Background Image
 
-        $file_name_logo = $_FILES['header_logo']['name'];
-		$temp_file_logo = $_FILES['header_logo']['tmp_name'];
-		$file_type_logo = $_FILES['header_logo']['type'];
-		
+        $file_name_logo = $_FILES['header_logo']['name']; //Logo Image
+		$temp_file_logo = $_FILES['header_logo']['tmp_name']; //Logo Image
+		$file_type_logo = $_FILES['header_logo']['type']; //Logo Image
+
+        // Save footer Text
+        $child_theme_footer_1 = $_POST['footer_1'];
+            //echo '<div class="updated"><h4>Footer Area 1 Updated Successfully</h4></div>';
+		    update_option('child_theme_footer_1', $child_theme_footer_1);
+        
+        $child_theme_footer_2 = $_POST['footer_2'];
+            //echo '<div class="updated"><h4>Footer Area 2 Updated Successfully</h4></div>';
+		    update_option('child_theme_footer_2', $child_theme_footer_2);
+        
+        $child_theme_footer_3 = $_POST['footer_3'];
+            //echo '<div class="updated"><h4>Footer Area 3 Updated Successfully</h4></div>';
+		    update_option('child_theme_footer_3', $child_theme_footer_3);
+
+        $child_theme_copyright = $_POST['copyright_info'];
+            //echo '<div class="updated"><h4>Copyright Information Updated Successfully</h4></div>';
+		    update_option('child_theme_copyright', $child_theme_copyright);
+
+        /*-- Background Image --*/
 		if($file_type=="image/gif" || $file_type=="image/jpeg" || $file_type=="image/pjpeg" || $file_type=="image/png"){
 			$length=filesize($temp_file);
 			$fd = fopen($temp_file,'rb');
@@ -144,6 +153,7 @@ function childtheme_admin() {
 			update_option('child_theme_image', $child_theme_image);
 		}
 	    
+        /*-- Logo Image --*/
         if($file_type_logo=="image/gif" || $file_type_logo=="image/jpeg" || $file_type_logo=="image/pjpeg" || $file_type_logo=="image/png"){
 			$length=filesize($temp_file_logo);
 			$fd = fopen($temp_file_logo,'rb');
@@ -172,6 +182,7 @@ function childtheme_admin() {
 	
 	/*if($enabled) $checked='checked="checked"';*/
 
+
 	?>
 		<div class="wrap">
 			<div id="icon-themes" class="icon32"></div>
@@ -195,7 +206,7 @@ function childtheme_admin() {
                 <table class="form-table">
                     <tr><h2>Logo</h2></tr>
 					<tr>
-						<td>Logo image:</td>
+						<td>Logo Image:</td>
 						<td><img style="width:256px;height:auto" src="<?php echo $child_theme_header_logo; ?>" /></td>
 					</tr>
 					<tr>
@@ -203,6 +214,27 @@ function childtheme_admin() {
 						<td><input type="file" name="header_logo"><br />(you must have writing permissions for your uploads directory)</td>
 					</tr>
 				</table>
+                <table class="form-table">
+                    <tr><h2>Footer</h2></tr>
+					<tr>
+						<td>Area 1:</td>
+						<td><p>Enter text for area 1 <br /></p><textarea name="footer_1" ><?php echo $child_theme_footer_1; ?></textarea></td>
+					</tr>
+					<tr>
+						<td>Area 2:</td>
+						<td><p>Enter text for area 2 <br /></p><textarea name="footer_2"><?php echo $child_theme_footer_2; ?></textarea></td>
+					</tr>
+                    <tr>
+						<td>Area 3:</td>
+						<td><p>Enter text for area 3 <br /></p><textarea name="footer_3"><?php echo $child_theme_footer_3; ?></textarea></td>
+					</tr>
+                    <tr>
+                        <td>Copyright Information:</td>
+                        <td><input type="text" name="copyright_info" value="<?php echo $child_theme_copyright; ?>" /></td>
+                    </tr>
+
+				</table>
+
 
 				<input type="hidden" name="options-submit" value="1" />
 				<p class="submit"><input type="submit" name="submit" value="Save Options" /></p>
@@ -227,6 +259,8 @@ if(TRUE) {
 } else {
 	add_filter('thematic_open_header','modify_header');
 }
+
+/*---- Logo Options ----*/
 function remove_thematic_blogtitle(){
     remove_action('thematic_header', 'thematic_blogtitle', 3);
 }
@@ -235,6 +269,41 @@ function thematic_header_logo(){
     echo '<div id="blog-title"><a href="'.get_option('home').'"><img src="'.get_option('child_theme_header_logo').'"/></a></div>';
 }
 add_action('thematic_header', 'thematic_header_logo', 4);
+
+/*---- Footer Options ----*/
+
+function childtheme_override_siteinfoopen(){
+    echo '';
+}
+
+function childtheme_override_siteinfoclose(){
+    echo '';
+}
+
+function childtheme_override_siteinfo(){
+    echo '<div class="footer-inner row">
+            <div class="col-4">
+            '.get_option('child_theme_footer_1').'
+            </div>
+            <div class="col-4">
+            '.get_option('child_theme_footer_2').'
+            </div>
+            <div class="col-4 last">
+            '.get_option('child_theme_footer_3').'
+            </div>
+          </div>
+          <div class="copyright-info">
+            '.get_option('child_theme_copyright').'
+          </div>
+            ';
+}
+
+/*function childtheme_copyright_info(){
+    echo '<div class="footer-inner">
+            Copyright Info
+          </div>';
+}
+add_action('thematic_belowfooter', 'childtheme_copyright_info', 4);*/
 
 
 /*function modify_homepage_content() {
