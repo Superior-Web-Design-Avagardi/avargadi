@@ -440,10 +440,16 @@ body,
 #branding {
   width: 100%!important;
   float: none!important;
+  margin-top: 64px;
   text-align: center;
 }
 .expanded #blog-title {
   margin: 0 auto;
+}
+.woocommerce img,
+.woocommerce-page img {
+  width: 320px;
+  height: auto;
 }
 #header:not(.expanded) {
   border-bottom: #CCC solid 1px;
