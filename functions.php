@@ -31,7 +31,17 @@ function samplechildtheme_add_thematic_styledependency() {
 }
 add_action( 'thematic_childtheme_style_dependencies', 'samplechildtheme_add_thematic_styledependency' );
 
+/* Remove breadcrumbs */
+add_action( 'init', 'jk_remove_wc_breadcrumbs' );
+function jk_remove_wc_breadcrumbs() {
+	register_nav_menu('top-menu',__( 'Top menu' ));
+	remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20, 0 );
+}
 
+function addTopNav() {
+	wp_nav_menu( array( 'theme_location' => 'top-menu', 'container_class' => 'top_menu' ) );
+}
+add_action('thematic_aboveheader', 'addTopNav');
 
 /**
  * Define theme setup
@@ -58,7 +68,7 @@ add_action('thematic_child_init', 'childtheme_register_menus');
 
 
 function add_fonts() { ?>
-	<link href='http://fonts.googleapis.com/css?family=Maven+Pro:500,400' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
 <?php }
 add_action('wp_head', 'add_fonts');
 
@@ -79,13 +89,6 @@ function modify_header_bottom() {
 
 /* Remove the 'showing xx results' on the category page */
 remove_action( 'woocommerce_before_shop_loop', 'woocommerce_result_count', 20 );
-
-/* Remove breadcrumbs */
-add_action( 'init', 'jk_remove_wc_breadcrumbs' );
-function jk_remove_wc_breadcrumbs() {
-    remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20, 0 );
-}
-
 
 // ---------- "Child Theme Options" menu STARTS HERE
 
@@ -251,9 +254,9 @@ if(TRUE) {
 	
 	function thematic_logo_image() {
 		if(is_home() || is_page('Shop')) {
-			echo '<div id="header" class="expanded" style=background-image:url("'.get_option('child_theme_image').'") ><nav id="header-nav" class="clearfix">';
+			echo '<div id="header" class="expanded" ><nav id="header-nav" class="clearfix">';
 		} else {
-			echo '<div id="header" style=background-image:url("'.get_option('child_theme_image').'") ><nav id="header-nav" class="clearfix">';
+			echo '<div id="header" ><nav id="header-nav" class="clearfix">';
 		}
 	}
 	add_filter('thematic_open_header','thematic_logo_image');
