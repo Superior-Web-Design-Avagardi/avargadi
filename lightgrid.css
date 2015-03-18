@@ -429,27 +429,33 @@ body,
  * $top menu
  * ---------------------------------------------------------------- */
 .top_menu {
-  background-color: #F6F4EC;
+  background-color: #f6f4ec;
 }
-#menu-top-menu {
+.top_menu > .menu {
   width: 1024px;
   margin: 0 auto;
-  padding: 4px 0;
+  padding: 0;
 }
-#menu-top-menu:after {
+.top_menu > .menu:after {
   content: '';
   display: block;
   clear: both;
 }
-#menu-top-menu > li {
+.top_menu > .menu > li {
   display: inline-block;
   float: left;
   margin-right: 16px;
 }
-#menu-top-menu > li > a {
+.top_menu > .menu > li > a {
+  display: inline-block;
+  padding: 4px 16px;
   color: #555;
 }
-#menu-top-menu > li:last-child {
+.top_menu > .menu > li > a:hover,
+.top_menu > .menu > li > a:active {
+  background-color: rgba(0, 0, 0, 0.03);
+}
+.top_menu > .menu > li:last-child {
   float: right;
   margin: 0;
 }
@@ -462,7 +468,7 @@ body,
   text-align: center;
 }
 #branding {
-  margin: 48px 0;
+  margin: 32px 0;
 }
 #blog-title img {
   width: 320px;
@@ -476,18 +482,28 @@ body,
 /* ----------------
  * $nav
  * ---------------- */
-#menu-header-menu {
-  margin: 0;
+#access ul {
+  margin: 16px 0;
   padding: 0;
   text-align: center;
   list-style: none;
-  border-top: #DDD solid 1px;
-  border-bottom: #DDD solid 1px;
+  border-top: #eeeeee solid 1px;
+  border-bottom: #eeeeee solid 1px;
 }
-#menu-header-menu > li {
+#access ul > li {
   display: inline-block;
-  padding: 4px 32px;
+  width: 20%;
   font-size: 1.2em;
+}
+#access ul > li > a {
+  display: inline-block;
+  width: 100%;
+  padding: 4px 32px;
+  box-sizing: border-box;
+}
+#access ul > li > a:hover,
+#access ul > li > a:active {
+  background-color: rgba(0, 0, 0, 0.04);
 }
 /* ----------------------------------------------------------------
  * $main
@@ -543,7 +559,7 @@ body,
   }
 }
 /* Remove if a better solution for not displaying the page title is found */
-.home .page-title {
+.home .entry-title {
   display: none;
 }
 /* ----------------------------------------------------------------
