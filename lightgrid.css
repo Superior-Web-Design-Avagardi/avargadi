@@ -131,29 +131,35 @@ button,
 input[type="button"],
 input[type="submit"],
 button,
-.error {
+.error,
+.button-home {
   display: inline-block;
   padding: 4px 14px;
+  text-align: center;
   color: #FFF;
   background-color: #3498DB;
   border: #3498DB solid 2px;
   border-radius: 3px;
   background-clip: padding-box;
+  box-sizing: border-box;
 }
 input[type="button"]:hover,
 input[type="submit"]:hover,
-button:hover {
+button:hover,
+.button-home:hover {
   border-color: #2383c4;
 }
 input[type="button"]:active,
 input[type="submit"]:active,
-button:active {
+button:active,
+.button-home:active {
   border-color: #2383c4;
   background-color: #2383c4;
 }
 input[type="button"]:focus,
 input[type="submit"]:focus,
-button:focus {
+button:focus,
+.button-home:focus {
   outline: none;
   border-color: #f1c40f;
 }
@@ -429,7 +435,7 @@ body,
  * $top menu
  * ---------------------------------------------------------------- */
 .top_menu {
-  background-color: #f6f4ec;
+  background-color: #f7f6f4;
 }
 .top_menu > .menu {
   width: 1024px;
@@ -483,12 +489,13 @@ body,
  * $nav
  * ---------------- */
 #access ul {
-  margin: 16px 0;
+  margin: 0;
+  margin-bottom: 16px;
   padding: 0;
   text-align: center;
   list-style: none;
-  border-top: #eeeeee solid 1px;
-  border-bottom: #eeeeee solid 1px;
+  border-top: #eeeeee solid 2px;
+  border-bottom: #eeeeee solid 2px;
 }
 #access ul > li {
   display: inline-block;
@@ -509,8 +516,44 @@ body,
  * $main
  * ---------------------------------------------------------------- */
 #main {
+  background-color: #f7f6f4;
+}
+#container {
   width: 1024px;
   margin: 0 auto;
+}
+.page-title {
+  position: relative;
+  padding: 16px 0 8px 0;
+  text-align: center;
+}
+.product {
+  padding: 16px!important;
+  background-color: #FFF;
+  box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+}
+.product .price {
+  padding: 4px 12px;
+  text-align: center;
+  border: #DDD solid 1px;
+  border-radius: 2px;
+}
+.preview-item-title {
+  padding: 16px 0!important;
+  text-align: center;
+  font-weight: 500;
+}
+.button-home {
+  width: 100%;
+  margin-top: 8px;
+}
+.term-description {
+  margin-bottom: 24px;
+  text-align: center;
+}
+.term-description > p {
+  margin: 0;
 }
 /* ----------------------------------------------------------------
  * $shop

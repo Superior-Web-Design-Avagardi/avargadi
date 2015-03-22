@@ -25,27 +25,30 @@ input, textarea, button, .error {
 	margin: 6px 0;
 }
 
-input[type="button"], input[type="submit"], button, .error {
+input[type="button"], input[type="submit"], button, .error, .button-home {
 	display: inline-block;
 	padding: 4px 14px;
 	
+	text-align: center;
 	color:#FFF;
+	
 	background-color: #3498DB;
 	border:#3498DB solid 2px;
 	border-radius: 3px;
 	background-clip: padding-box;
+	box-sizing: border-box;
 }
 
-input[type="button"]:hover, input[type="submit"]:hover, button:hover {
+input[type="button"]:hover, input[type="submit"]:hover, button:hover, .button-home:hover {
 	border-color: @button-dark;
 }
 
-input[type="button"]:active, input[type="submit"]:active, button:active {
+input[type="button"]:active, input[type="submit"]:active, button:active, .button-home:active {
 	border-color: @button-dark;
 	background-color: @button-dark;
 }
 
-input[type="button"]:focus, input[type="submit"]:focus, button:focus {
+input[type="button"]:focus, input[type="submit"]:focus, button:focus, .button-home:focus {
 	outline: none;
 	border-color: @focus;
 }

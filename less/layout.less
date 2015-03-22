@@ -101,15 +101,16 @@ body, #wrapper {
  * $nav
  * ---------------- */
 #access ul {
-	margin: 16px 0;
+	margin: 0;
+	margin-bottom: 16px;
 	padding: 0;
 
 	text-align: center;
 	
 	list-style: none;
 	
-	border-top:@background2 solid 1px;
-	border-bottom:@background2 solid 1px;
+	border-top:@background2 solid 2px;
+	border-bottom:@background2 solid 2px;
 }
 
 #access ul > li {
@@ -136,8 +137,58 @@ body, #wrapper {
  * $main
  * ---------------------------------------------------------------- */
 #main {
+	background-color: @background1;
+}
+
+#container {
 	width:@site-width;
 	margin: 0 auto;
+}
+
+.page-title {
+	position: relative;
+	padding: 16px 0 8px 0;
+	
+	text-align: center;
+}
+
+.product {
+	padding: 16px!important;
+	
+	background-color: #FFF;
+	
+	box-shadow: 0 1px 2px 1px rgba(0,0,0,0.1);
+	box-sizing: border-box;
+}
+
+.product .price {
+	padding: 4px 12px;
+	
+	text-align: center;
+	
+	border:#DDD solid 1px;
+	border-radius: 2px;
+}
+
+.preview-item-title {
+	padding: 16px 0!important;
+	
+	text-align: center;
+	font-weight: 500;
+}
+
+.button-home {
+	width: 100%;
+	margin-top: 8px;
+}
+
+.term-description {
+	margin-bottom: 24px;
+	text-align: center;
+}
+
+.term-description > p {
+	margin: 0;
 }
 
 

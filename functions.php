@@ -68,7 +68,7 @@ add_action('thematic_child_init', 'childtheme_register_menus');
 
 
 function add_fonts() { ?>
-	<link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Roboto:400,500' rel='stylesheet' type='text/css'>
 <?php }
 add_action('wp_head', 'add_fonts');
 
@@ -80,6 +80,13 @@ function modify_header() {
 	} else {
 		echo '<div id="header"><nav id="header-nav" class="clearfix">';
 	}*/
+}
+
+// Disable reviews
+add_filter( 'woocommerce_product_tabs', 'wcs_woo_remove_reviews_tab', 98 );
+function wcs_woo_remove_reviews_tab($tabs) {
+ unset($tabs['reviews']);
+ return $tabs;
 }
 
 function modify_header_bottom() {

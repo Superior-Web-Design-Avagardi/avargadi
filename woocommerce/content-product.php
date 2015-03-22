@@ -39,8 +39,6 @@ if ( 0 == $woocommerce_loop['loop'] % $woocommerce_loop['columns'] )
 
 	<?php do_action( 'woocommerce_before_shop_loop_item' ); ?>
 
-	<a href="<?php the_permalink(); ?>">
-
 		<?php
 			/**
 			 * woocommerce_before_shop_loop_item_title hook
@@ -51,7 +49,7 @@ if ( 0 == $woocommerce_loop['loop'] % $woocommerce_loop['columns'] )
 			do_action( 'woocommerce_before_shop_loop_item_title' );
 		?>
 
-		<h3><?php the_title(); ?></h3>
+		<h3 class="preview-item-title"><?php the_title(); ?></h3>
 
 		<?php
 			/**
@@ -62,9 +60,11 @@ if ( 0 == $woocommerce_loop['loop'] % $woocommerce_loop['columns'] )
 			 */
 			do_action( 'woocommerce_after_shop_loop_item_title' );
 		?>
-
+	<a class="button-home" href="<?php the_permalink(); ?>">
+	Read more
 	</a>
-
+	<!--
+	Removes the add to cart button
 	<?php do_action( 'woocommerce_after_shop_loop_item' ); ?>
-
+-->
 </li>
