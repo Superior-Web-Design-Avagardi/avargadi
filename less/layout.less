@@ -147,7 +147,8 @@ body, #wrapper {
 	margin: 0 auto;
 }
 
-.page-title {
+.page-title,
+.entry-title {
 	position: relative;
 	padding: 16px 0 8px 0;
 	
@@ -181,6 +182,10 @@ body, #wrapper {
 	font-weight: 500;
 }
 
+.star-rating {
+	margin: 0 auto 8px auto!important;
+}
+
 .button-home {
 	width: 100%;
 	margin-top: 8px;
@@ -205,6 +210,39 @@ body, #wrapper {
 	padding: 4px 8px;
   border: #CCC solid 2px;
   border-radius: 3px;
+}
+
+.shop_table {
+	background-color: #FFF;
+	box-shadow: 0 1px 2px 1px rgba(0,0,0,0.1);
+	border:none!important;
+}
+
+.cart_totals h2 {
+	text-shadow: 0 1px 0 #FFF;
+}
+
+.woocommerce-cart table.cart img {
+	width: 128px;
+}
+
+.woocommerce table.shop_table th {
+	font-weight: 500;
+}
+
+.cart .button,
+.cart input.button {
+	margin-top: 8px!important;
+}
+
+.coupon {
+	padding-bottom: 8px;
+	
+	border-bottom:#DDD solid 1px;
+}
+
+.cart_totals {
+	text-align: right;
 }
 
 
@@ -232,6 +270,8 @@ body, #wrapper {
 	width:@site-width;
 	margin: 0 auto;
 	
+	text-align: center;
+	
 	color:#ddd;
 }
 
@@ -246,7 +286,8 @@ body, #wrapper {
  * $misc
  * ---------------------------------------------------------------- */
 .reviews_tab > a,
-.description_tab > a {
+.description_tab > a,
+.additional_information_tab > a {
 	font-weight: 500!important;
 }
 
@@ -279,4 +320,63 @@ body, #wrapper {
 
 .woocommerce .products ul, .woocommerce ul.products {
 	margin-bottom: 0;
+}
+
+.woocommerce-breadcrumb {
+	display: inline-block;
+	margin:32px 0 0 0!important;
+	
+	text-shadow: 0 1px 0 #FFF;
+}
+
+.woocommerce-breadcrumb a {
+	color:#666;
+}
+
+.woocommerce-breadcrumb a:hover,
+.woocommerce-breadcrumb a:active {
+	color:#444;
+	text-decoration: underline;
+}
+
+.woocommerce .quantity .qty {
+	text-align: left;
+}
+
+th,
+td {
+	font-weight: 500!important;
+}
+
+.woocommerce #content table.cart td.actions .input-text,
+.woocommerce table.cart td.actions .input-text,
+.woocommerce-page #content table.cart td.actions .input-text,
+.woocommerce-page table.cart td.actions .input-text {
+	width: 100%;
+}
+
+td.actions {
+	padding: 6px!important;
+}
+
+.woocommerce-info,
+.woocommerce-message {
+	background-color: #FFF!important;
+	border-radius: 3px;
+	
+	box-shadow: 0 1px 2px 1px rgba(0,0,0,0.1);
+}
+
+.woocommerce-info a,
+.woocommerce-message a {
+	color: @brand1;
+}
+
+.woocommerce-info a:hover,
+.woocommerce-info a:active {
+	text-decoration: underline;
+}
+
+.woocommerce-cart .cart-collaterals .cart_totals table {
+	display: inline-block;
 }

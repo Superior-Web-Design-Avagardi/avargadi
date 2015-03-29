@@ -31,13 +31,6 @@ function samplechildtheme_add_thematic_styledependency() {
 }
 add_action( 'thematic_childtheme_style_dependencies', 'samplechildtheme_add_thematic_styledependency' );
 
-/* Remove breadcrumbs */
-add_action( 'init', 'jk_remove_wc_breadcrumbs' );
-function jk_remove_wc_breadcrumbs() {
-	register_nav_menu('top-menu',__( 'Top menu' ));
-	remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20, 0 );
-}
-
 function addTopNav() {
 	wp_nav_menu( array( 'theme_location' => 'top-menu', 'container_class' => 'top_menu' ) );
 }
@@ -51,6 +44,31 @@ function samplechildtheme_setup() {
 }
 add_action( 'after_setup_theme', 'samplechildtheme_setup' );
 
+/*
+ * Remove billing form
+ */
+/*add_filter( 'woocommerce_checkout_fields' , 'custom_override_checkout_fields' );
+ 
+function custom_override_checkout_fields( $fields ) {
+    unset($fields['billing']['billing_first_name']);
+    unset($fields['billing']['billing_last_name']);
+    unset($fields['billing']['billing_company']);
+    unset($fields['billing']['billing_address_1']);
+    unset($fields['billing']['billing_address_2']);
+    unset($fields['billing']['billing_city']);
+    unset($fields['billing']['billing_postcode']);
+    unset($fields['billing']['billing_country']);
+    unset($fields['billing']['billing_state']);
+    unset($fields['billing']['billing_phone']);
+    unset($fields['order']['order_comments']);
+    unset($fields['billing']['billing_address_2']);
+    unset($fields['billing']['billing_postcode']);
+    unset($fields['billing']['billing_company']);
+    unset($fields['billing']['billing_last_name']);
+    unset($fields['billing']['billing_email']);
+    unset($fields['billing']['billing_city']);
+    return $fields;
+}*/
 
 /*
  * Custom theme  modifications
