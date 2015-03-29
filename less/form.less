@@ -11,18 +11,23 @@
  */
 @import 'colors.less';
 @import 'typography.less';
+@import 'config.less';
 
 
 // Resets inputs across browsers
-input, textarea, button, .error {
+input, textarea, button, .error, select {
 	display: inline-block;
 	
-	font-family: 'Helvetica Neue', 'Lucida Sans Unicode';
+	font-family: @body-font;
 	
 	border:none;
 	width:100%;
 	box-sizing: border-box;
 	margin: 6px 0;
+}
+
+select {
+	font-weight: 500;
 }
 
 input[type="button"], input[type="submit"], button, .error, .button-home {
@@ -32,23 +37,23 @@ input[type="button"], input[type="submit"], button, .error, .button-home {
 	text-align: center;
 	color:#FFF;
 	
-	background-color: #3498DB;
-	border:#3498DB solid 2px;
+	background-color: @brand1;
+	border:@brand1 solid 2px;
 	border-radius: 3px;
 	background-clip: padding-box;
 	box-sizing: border-box;
 }
 
-input[type="button"]:hover, input[type="submit"]:hover, button:hover, .button-home:hover {
-	border-color: @button-dark;
+input[type="button"]:hover, input[type="submit"]:hover, button:hover, .button-home:hover, {
+	border-color: darken(@brand1, 10%);
 }
 
-input[type="button"]:active, input[type="submit"]:active, button:active, .button-home:active {
-	border-color: @button-dark;
-	background-color: @button-dark;
+input[type="button"]:active, input[type="submit"]:active, button:active, .button-home:active, {
+	border-color: darken(@brand1, 10%);
+	background-color: darken(@brand1, 10%);
 }
 
-input[type="button"]:focus, input[type="submit"]:focus, button:focus, .button-home:focus {
+input[type="button"]:focus, input[type="submit"]:focus, button:focus, .button-home:focus, {
 	outline: none;
 	border-color: @focus;
 }
@@ -113,5 +118,57 @@ label {
 	display: inline-block;
 	margin-top: 6px;
 	font-size: @text-size;
-	font-weight: 700;
+	font-weight: 500;
+}
+
+
+
+
+
+.woocommerce #respond input#submit,
+.woocommerce a.button,
+.woocommerce button.button,
+.woocommerce input.button {
+	font-weight: 500;
+}
+
+.woocommerce #respond input#submit.alt,
+.woocommerce a.button.alt,
+.woocommerce button.button.alt,
+.woocommerce input.button.alt {
+	display: inline-block;
+	padding: 8px 14px;
+	
+	text-align: center;
+	color:#FFF;
+	
+	background-color: @brand1;
+	border:@brand1 solid 2px;
+	border-radius: 3px;
+	background-clip: padding-box;
+	box-sizing: border-box;
+}
+
+.woocommerce #respond input#submit.alt:hover,
+.woocommerce a.button.alt:hover,
+.woocommerce button.button.alt:hover,
+.woocommerce input.button.alt:hover {
+	border-color: darken(@brand1, 10%)!important;
+	background-color: @brand1;
+}
+
+.woocommerce #respond input#submit.alt:active,
+.woocommerce a.button.alt:active,
+.woocommerce button.button.alt:active,
+.woocommerce input.button.alt:active {
+	border-color: darken(@brand1, 10%);
+	background-color: darken(@brand1, 10%);
+}
+
+.woocommerce #respond input#submit.alt:focus,
+.woocommerce a.button.alt:focus,
+.woocommerce button.button.alt:focus,
+.woocommerce input.button.alt:focus {
+	outline: none;
+	border-color: @focus;
 }

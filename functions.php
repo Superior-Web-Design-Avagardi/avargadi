@@ -82,12 +82,7 @@ function modify_header() {
 	}*/
 }
 
-// Disable reviews
-add_filter( 'woocommerce_product_tabs', 'wcs_woo_remove_reviews_tab', 98 );
-function wcs_woo_remove_reviews_tab($tabs) {
- unset($tabs['reviews']);
- return $tabs;
-}
+
 
 function modify_header_bottom() {
 	echo '</nav></div>';

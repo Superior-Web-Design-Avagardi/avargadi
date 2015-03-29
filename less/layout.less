@@ -66,6 +66,7 @@ body, #wrapper {
 .top_menu > .menu > li:last-child {
 	float: right;
 	margin: 0;
+	background-color: lighten(@brand1, 45%);
 }
 
 
@@ -102,7 +103,7 @@ body, #wrapper {
  * ---------------- */
 #access ul {
 	margin: 0;
-	margin-bottom: 16px;
+	margin-bottom: 32px;
 	padding: 0;
 
 	text-align: center;
@@ -138,6 +139,7 @@ body, #wrapper {
  * ---------------------------------------------------------------- */
 #main {
 	background-color: @background1;
+	box-shadow: inset 0 1px 2px 1px rgba(0,0,0,0.08);
 }
 
 #container {
@@ -150,6 +152,8 @@ body, #wrapper {
 	padding: 16px 0 8px 0;
 	
 	text-align: center;
+	
+	text-shadow: 0 1px 0 #FFF;
 }
 
 .product {
@@ -195,7 +199,13 @@ body, #wrapper {
 /* ----------------------------------------------------------------
  * $shop
  * ---------------------------------------------------------------- */
-
+// Ordering form
+.woocommerce
+.woocommerce-ordering select {
+	padding: 4px 8px;
+  border: #CCC solid 2px;
+  border-radius: 3px;
+}
 
 
 /* ----------------------------------------------------------------
@@ -230,4 +240,43 @@ body, #wrapper {
 	text-align: center;
 	
 	color:#DDD;
+}
+
+/* ----------------------------------------------------------------
+ * $misc
+ * ---------------------------------------------------------------- */
+.reviews_tab > a,
+.description_tab > a {
+	font-weight: 500!important;
+}
+
+.commentlist {
+	padding: 0;
+}
+
+.comment-form {
+	width: 50%;
+}
+
+.woocommerce div.product {
+	display: inline-block;
+	margin: 32px 0;
+}
+
+.stars a {
+	color:rgb(241,196,15);
+}
+
+.quantity > .input-text {
+	min-width: 64px;
+}
+
+.page {
+	margin: 32px 0;
+	display: inline-block;
+	width: 100%;
+}
+
+.woocommerce .products ul, .woocommerce ul.products {
+	margin-bottom: 0;
 }
