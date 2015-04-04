@@ -45,6 +45,10 @@ function samplechildtheme_setup() {
 add_action( 'after_setup_theme', 'samplechildtheme_setup' );
 
 /*
+ * Shows 12 products per page
+ */
+add_filter( 'loop_shop_per_page', create_function( '$cols', 'return 12;' ), 20 );
+/*
  * Remove billing form
  */
 /*add_filter( 'woocommerce_checkout_fields' , 'custom_override_checkout_fields' );
