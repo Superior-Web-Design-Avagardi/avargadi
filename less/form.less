@@ -137,15 +137,16 @@ label {
 .woocommerce button.button.alt,
 .woocommerce input.button.alt,
 .woocommerce .cart .button,
-.woocommerce .cart input.button {
+.woocommerce .cart input.button,
+.button.wc-backward {
 	display: inline-block;
 	padding: 8px 14px;
 	
 	text-align: center;
-	color:#FFF;
+	color:#FFF!important;
 	
-	background-color: @brand1;
-	border:@brand1 solid 2px;
+	background-color: @brand1!important;
+	border:@brand1 solid 2px!important;
 	border-radius: 3px;
 	background-clip: padding-box;
 	box-sizing: border-box;
@@ -156,7 +157,8 @@ label {
 .woocommerce button.button.alt:hover,
 .woocommerce input.button.alt:hover,
 .woocommerce .cart .button:hover,
-.woocommerce .cart input.button:hover {
+.woocommerce .cart input.button:hover,
+.button.wc-backward:hover {
 	border-color: darken(@brand1, 10%)!important;
 	background-color: @brand1;
 }
@@ -166,9 +168,10 @@ label {
 .woocommerce button.button.alt:active,
 .woocommerce input.button.alt:active,
 .woocommerce .cart .button:active,
-.woocommerce .cart input.button:active {
-	border-color: darken(@brand1, 10%);
-	background-color: darken(@brand1, 10%);
+.woocommerce .cart input.button:active,
+.button.wc-backward:active {
+	border-color: darken(@brand1, 10%)!important;
+	background-color: darken(@brand1, 10%)!important;
 }
 
 .woocommerce #respond input#submit.alt:focus,
@@ -176,7 +179,8 @@ label {
 .woocommerce button.button.alt:focus,
 .woocommerce input.button.alt:focus,
 .woocommerce .cart .button:focus,
-.woocommerce .cart input.button:focus {
+.woocommerce .cart input.button:focus,
+.button.wc-backward:focus {
 	outline: none;
-	border-color: @focus;
+	border-color: @focus!important;
 }
