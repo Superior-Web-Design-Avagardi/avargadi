@@ -90,6 +90,7 @@ add_action('thematic_child_init', 'childtheme_register_menus');
 
 
 function add_fonts() { ?>
+	<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;">
 	<link href='http://fonts.googleapis.com/css?family=Roboto:400,500' rel='stylesheet' type='text/css'>
 <?php }
 add_action('wp_head', 'add_fonts');
