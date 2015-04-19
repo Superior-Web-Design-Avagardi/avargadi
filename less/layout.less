@@ -66,15 +66,6 @@ body, #wrapper {
 .top_menu > .menu > li:last-child {
 	float: right;
 	margin: 0;
-	background-color: lighten(@brand1, 42%);
-}
-
-.top_menu > .menu > li:last-child > a:before {
-	margin-right: 8px;
-	
-	content: '\e604';
-	font-family: 'icomoon';
-	font-size: 0.9em;
 }
 
 
@@ -318,11 +309,25 @@ select {
 	background-color: rgb(52,73,94);
 }
 
+#footer p {
+	margin: .3em 0;
+}
+
+#footer h3 {
+	margin-bottom: 1em;
+}
+
+#footer label {
+	margin-top:0;
+	font-size: 1em;
+	font-weight: 400;
+}
+
 .footer-inner {
 	width:@site-width;
 	margin: 0 auto;
 	
-	text-align: center;
+	text-align: left;
 	
 	color:#ddd;
 }
@@ -558,6 +563,16 @@ td.actions {
 .product > .summary {
 	width: 38%!important;
 }
+
+.facebook-button-container {
+	width:135px;
+	margin-top:15px;
+}
+
+.pinterest-btn {
+	margin:15px 0;
+}
+
 
 /* ----------------------------------------------------------------
  * $lightbox

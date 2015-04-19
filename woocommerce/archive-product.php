@@ -42,7 +42,74 @@ get_header( 'shop' ); ?>
 				 */
 				do_action( 'woocommerce_before_shop_loop' );
 			?>
+		
+			
+				
+					
+						
+								
+<?php
+  $taxonomy     = 'product_cat';
+  $orderby      = 'name';  
+  $show_count   = 0;      // 1 for yes, 0 for no
+  $pad_counts   = 0;      // 1 for yes, 0 for no
+  $hierarchical = 0;      // 1 for yes, 0 for no  
+  $title        = '';  
+  $empty        = 0;
+$args = array(
+  'taxonomy'     => $taxonomy,
+  'orderby'      => $orderby,
+  'show_count'   => $show_count,
+  'pad_counts'   => $pad_counts,
+  'hierarchical' => $hierarchical,
+  'title_li'     => $title,
+  'hide_empty'   => $empty
+);
+?>
+<?php $all_categories = get_categories( $args );
 
+//print_r($all_categories);
+foreach ($all_categories as $cat) {
+    //print_r($cat);
+    if($cat->category_parent == 0) {
+        $category_id = $cat->term_id;
+
+?>     
+
+<?php       
+
+        echo '<br /><a href="'. get_term_link($cat->slug, 'product_cat') .'">'. $cat->name .'</a>'; ?>
+
+
+           <?php  
+							
+							$args = array( 'post_type' => 'product', 'posts_per_page' => 10, 'product_cat' => $cat->name );
+
+							$loop = new WP_Query( $args );
+
+
+							while ( $loop->have_posts() ) : $loop->the_post(); 
+							global $product; 
+
+					woocommerce_get_template_part( 'content', 'product' );
+							endwhile; 
+
+
+							wp_reset_query(); 
+
+					?>
+
+
+    <?php }     
+}
+?>
+			
+
+		
+		
+		
+		
+		
 			<?php woocommerce_product_loop_start(); ?>
 
 				<?php woocommerce_product_subcategories(); ?>
