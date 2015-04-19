@@ -322,20 +322,20 @@ function childtheme_override_siteinfoclose(){
 function childtheme_override_siteinfo(){
     echo '<div class="footer-inner row">
             <div class="col-3">
-            '.get_option('child_theme_footer_1').'
+            '.stripslashes(get_option('child_theme_footer_1')).'
             </div>
             <div class="col-3">
-            '.get_option('child_theme_footer_2').'
+            '.stripslashes(get_option('child_theme_footer_2')).'
             </div>
             <div class="col-3">
-            '.get_option('child_theme_footer_3').'
+            '.stripslashes(get_option('child_theme_footer_3')).'
             </div>
             <div class="col-3 last">
-            '.get_option('child_theme_footer_4').'
+            '.stripslashes(get_option('child_theme_footer_4')).'
             </div>
           </div>
           <div class="copyright-info">
-            '.get_option('child_theme_copyright').'
+            '.stripslashes(get_option('child_theme_copyright')).'
           </div>
             ';
 }
