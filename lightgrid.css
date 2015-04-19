@@ -590,7 +590,7 @@ body,
   text-shadow: 0 1px 0 #FFF;
 }
 .product {
-  padding: 16px!important;
+  padding: 12px!important;
   background-color: #FFF;
   box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.1);
   box-sizing: border-box;
@@ -677,6 +677,23 @@ select {
 /* ----------------------------------------------------------------
  * $home page categories
  * ---------------------------------------------------------------- */
+.woocommerce ul.products li.product,
+.woocommerce-page ul.products li.product {
+  margin: 0 2.5% 2.5em 0;
+  width: 18%;
+}
+.woocommerce ul.products li.product:nth-child(5n),
+.woocommerce-page ul.products li.product:nth-child(5n) {
+  margin-right: 0;
+}
+.woocommerce ul.products li.product:nth-child(5n + 1),
+.woocommerce-page ul.products li.product:nth-child(5n + 1) {
+  clear: both;
+}
+.woocommerce ul.products li.first,
+.woocommerce-page ul.products li.first {
+  clear: none;
+}
 /* ----------------------------------------------------------------
  * $footer
  * ---------------------------------------------------------------- */
@@ -871,6 +888,18 @@ td.actions {
  * inside the head tag
  * Extra media queries taken from http://responsivedesign.is/develop/browser-feature-support/media-queries-for-common-device-breakpoints
  * ---------------------------------------------------------------- */
+/* iPads (portrait and landscape) ----------- */
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+  .top_menu > .menu,
+  #header,
+  #container,
+  .footer-inner {
+    width: 760px;
+  }
+  .product {
+    padding: 8px!important;
+  }
+}
 @media only screen and (min-width: 1px) and (max-width: 768px) {
   .col-1,
   .col-2,
@@ -897,14 +926,67 @@ td.actions {
     margin: 0;
     float: none;
   }
+  .top_menu > .menu,
+  #header,
+  #container,
+  .footer-inner {
+    width: 88%;
+  }
+  #access ul > li > a {
+    width: auto;
+  }
+  .product {
+    padding: 6px!important;
+  }
+  .woocommerce .woocommerce-breadcrumb {
+    text-align: center;
+    width: 100%;
+  }
+  .shop-cat-desc {
+    font-size: 0.7em;
+  }
+  .top_menu > .menu {
+    text-align: center;
+  }
+  .top_menu > .menu > li {
+    float: none;
+    margin: 0;
+  }
+  .top_menu > .menu > li:last-child {
+    float: none;
+  }
+  #access ul > li {
+    width: auto;
+  }
+  #access ul > li > a {
+    padding: 4px 16px;
+    font-size: 0.8em;
+  }
+  .woocommerce ul.products li.product,
+  .woocommerce-page ul.products li.product {
+    width: 48%;
+    margin: 0 4% 2% 0;
+  }
+  .woocommerce ul.products li.product:nth-child(2n),
+  .woocommerce-page ul.products li.product:nth-child(2n) {
+    margin-right: 0;
+  }
+  .woocommerce ul.products li.product:nth-child(2n + 1),
+  .woocommerce-page ul.products li.product:nth-child(2n + 1) {
+    clear: both;
+  }
+  .woocommerce .woocommerce-ordering,
+  .woocommerce .woocommerce-result-count {
+    width: 100%;
+  }
+  .product > .images {
+    width: 100%!important;
+    height: auto;
+  }
+  .summary.entry-summary {
+    width: 100%!important;
+  }
+  #order_review {
+    width: 100%;
+  }
 }
-/* Smartphones (portrait and landscape) ----------- */
-/* Smartphones (landscape) ----------- */
-/* Smartphones (portrait) ----------- */
-/* iPads (portrait and landscape) ----------- */
-/* iPads (landscape) ----------- */
-/* iPads (portrait) ----------- */
-/* Ipad 3 */
-/* Desktops and laptops ----------- */
-/* Large screens ----------- */
-/* iPhone 4 ----------- */

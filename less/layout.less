@@ -166,7 +166,7 @@ body, #wrapper {
 }
 
 .product {
-	padding: 16px!important;
+	padding: 12px!important;
 	
 	background-color: #FFF;
 	
@@ -286,6 +286,27 @@ select {
  * $home page categories
  * ---------------------------------------------------------------- */
 
+.woocommerce ul.products li.product,
+.woocommerce-page ul.products li.product {
+	margin: 0 2.5% 2.5em 0;
+	width: 18%;
+}
+
+.woocommerce ul.products li.product:nth-child(5n),
+.woocommerce-page ul.products li.product:nth-child(5n) {
+	margin-right: 0;
+}
+
+.woocommerce ul.products li.product:nth-child(5n + 1),
+.woocommerce-page ul.products li.product:nth-child(5n + 1) {
+	clear: both;
+}
+
+
+.woocommerce ul.products li.first,
+.woocommerce-page ul.products li.first {
+	clear: none;
+}
 
 
 /* ----------------------------------------------------------------
