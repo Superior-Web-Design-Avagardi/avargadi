@@ -129,6 +129,7 @@ function childtheme_admin() {
     $child_theme_footer_1    = get_option('child_theme_footer_1');
     $child_theme_footer_2    = get_option('child_theme_footer_2');
     $child_theme_footer_3    = get_option('child_theme_footer_3');
+    $child_theme_footer_4    = get_option('child_theme_footer_4');
     $child_theme_copyright   = get_option('child_theme_copyright');
 	$enabled = TRUE; /* get_option('child_theme_logo_enabled'); */
 	
@@ -156,6 +157,10 @@ function childtheme_admin() {
         $child_theme_footer_3 = $_POST['footer_3'];
             //echo '<div class="updated"><h4>Footer Area 3 Updated Successfully</h4></div>';
 		    update_option('child_theme_footer_3', $child_theme_footer_3);
+
+        $child_theme_footer_4 = $_POST['footer_4'];
+            //echo '<div class="updated"><h4>Footer Area 4 Updated Successfully</h4></div>';
+		    update_option('child_theme_footer_4', $child_theme_footer_4);
 
         $child_theme_copyright = $_POST['copyright_info'];
             //echo '<div class="updated"><h4>Copyright Information Updated Successfully</h4></div>';
@@ -258,6 +263,11 @@ function childtheme_admin() {
 						<td><p>Enter text for area 3 <br /></p><textarea name="footer_3"><?php echo $child_theme_footer_3; ?></textarea></td>
 					</tr>
                     <tr>
+						<td>Area 4:</td>
+						<td><p>Enter text for area 4 <br /></p><textarea name="footer_4"><?php echo $child_theme_footer_4; ?></textarea></td>
+					</tr>
+
+                    <tr>
                         <td>Copyright Information:</td>
                         <td><input type="text" name="copyright_info" value="<?php echo $child_theme_copyright; ?>" /></td>
                     </tr>
@@ -311,14 +321,17 @@ function childtheme_override_siteinfoclose(){
 
 function childtheme_override_siteinfo(){
     echo '<div class="footer-inner row">
-            <div class="col-4">
+            <div class="col-3">
             '.get_option('child_theme_footer_1').'
             </div>
-            <div class="col-4">
+            <div class="col-3">
             '.get_option('child_theme_footer_2').'
             </div>
-            <div class="col-4 last">
+            <div class="col-3">
             '.get_option('child_theme_footer_3').'
+            </div>
+            <div class="col-3 last">
+            '.get_option('child_theme_footer_4').'
             </div>
           </div>
           <div class="copyright-info">
