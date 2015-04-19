@@ -36,6 +36,7 @@ $woocommerce_loop['loop']++;
 	<?php do_action( 'woocommerce_before_subcategory', $category ); ?>
 	
 		<section class="image-container">
+		<a href="<?php echo get_term_link( $category->slug, 'product_cat' ); ?>">
 		<?php
 			/**
 			 * woocommerce_before_subcategory_title hook
@@ -44,9 +45,11 @@ $woocommerce_loop['loop']++;
 			 */
 			do_action( 'woocommerce_before_subcategory_title', $category );
 		?>
+		</a>
 		</section>
 
 		<section class="info-container">
+		<a href="<?php echo get_term_link( $category->slug, 'product_cat' ); ?>">
 		<h3 class="preview-item-title">
 			<?php
 				echo $category->name;
@@ -55,6 +58,7 @@ $woocommerce_loop['loop']++;
 					echo apply_filters( 'woocommerce_subcategory_count_html', ' <mark class="count">(' . $category->count . ')</mark>', $category );*/
 			?>
 		</h3>
+		</a>
 
 		<?php
 			/**

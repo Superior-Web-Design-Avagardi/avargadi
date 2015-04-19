@@ -38,7 +38,8 @@ if ( 0 == $woocommerce_loop['loop'] % $woocommerce_loop['columns'] )
 <li <?php post_class( $classes ); ?>>
 
 	<?php do_action( 'woocommerce_before_shop_loop_item' ); ?>
-
+		
+		<a href="<?php the_permalink(); ?>">
 		<?php
 			/**
 			 * woocommerce_before_shop_loop_item_title hook
@@ -48,8 +49,11 @@ if ( 0 == $woocommerce_loop['loop'] % $woocommerce_loop['columns'] )
 			 */
 			do_action( 'woocommerce_before_shop_loop_item_title' );
 		?>
-
+		</a>
+		
+		<a href="<?php the_permalink(); ?>">
 		<h3 class="preview-item-title"><?php the_title(); ?></h3>
+		</a>
 
 		<?php
 			/**
