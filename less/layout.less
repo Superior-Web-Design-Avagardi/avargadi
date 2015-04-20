@@ -267,6 +267,21 @@ select {
 	margin: 8px 0;
 }
 
+.category-title {
+	margin-bottom: 16px;
+	border-top:#DDD solid 2px;
+	border-bottom:#DDD solid 2px;
+}
+
+.category-title a {
+	color:#555;
+}
+
+.category-title a:hover,
+.category-title a:active {
+	color:#333;
+}
+
 
 /* ----------------------------------------------------------------
  * $sidebars
@@ -309,6 +324,15 @@ select {
 	background-color: rgb(52,73,94);
 }
 
+#footer a {
+	color:#DDD;
+}
+
+#footer a:hover,
+#footer a:active {
+	text-decoration: underline;
+}
+
 #footer p {
 	margin: .3em 0;
 }
@@ -345,7 +369,7 @@ select {
  * ---------------------------------------------------------------- */
 .cart-tab.right a.cart-parent {
 	width: 76px;
-	height:80px;
+	height:76px;
 	left:-76px;
 	padding: 12px;
 	
@@ -366,7 +390,7 @@ select {
 	height: 0;
 	background-color: transparent;
 	border-style: solid;
-	border-width: 40px 32px 40px 0;
+	border-width: 38px 16px 38px 0;
 	border-color: transparent lighten(@brand1, 10%) transparent transparent;
 }
 
@@ -416,6 +440,7 @@ a.cart-parent > .contents {
 
 .woocommerce div.product {
 	display: inline-block;
+	width: 100%;
 	margin: 32px 0;
 }
 

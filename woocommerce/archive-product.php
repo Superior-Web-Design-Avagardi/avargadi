@@ -43,84 +43,71 @@ get_header( 'shop' ); ?>
 				do_action( 'woocommerce_before_shop_loop' );
 			?>
 		
-			
+		<?php
+			if(is_shop()) {
 				
-					
-						
-								
-<?php
-  $taxonomy     = 'product_cat';
-  $orderby      = 'name';  
-  $show_count   = 0;      // 1 for yes, 0 for no
-  $pad_counts   = 0;      // 1 for yes, 0 for no
-  $hierarchical = 0;      // 1 for yes, 0 for no  
-  $title        = '';  
-  $empty        = 0;
-$args = array(
-  'taxonomy'     => $taxonomy,
-  'orderby'      => $orderby,
-  'show_count'   => $show_count,
-  'pad_counts'   => $pad_counts,
-  'hierarchical' => $hierarchical,
-  'title_li'     => $title,
-  'hide_empty'   => $empty
-);
-?>
-<?php $all_categories = get_categories( $args );
+				/*
+				 * Arranges shop page to display categories and their corresponding products
+				 */
+				$taxonomy     = 'product_cat';
+				$orderby      = 'name';  
+				$show_count   = 0;      // 1 for yes, 0 for no
+				$pad_counts   = 0;      // 1 for yes, 0 for no
+				$hierarchical = 0;      // 1 for yes, 0 for no  
+				$title        = '';  
+				$empty        = 0;
 
-//print_r($all_categories);
-foreach ($all_categories as $cat) {
-    //print_r($cat);
-    if($cat->category_parent == 0) {
-        $category_id = $cat->term_id;
+				$args = array(
+					'taxonomy'     => $taxonomy,
+					'orderby'      => $orderby,
+					'show_count'   => $show_count,
+					'pad_counts'   => $pad_counts,
+					'hierarchical' => $hierarchical,
+					'title_li'     => $title,
+					'hide_empty'   => $empty
+				);
 
-?>     
+				$all_categories = get_categories( $args );
 
-<?php       
+				foreach ($all_categories as $cat) {
+					if($cat->category_parent == 0) {
+						$category_id = $cat->term_id;
+						echo '<h2 class="category-title"><a href="'. get_term_link($cat->slug, 'product_cat') .'">'. $cat->name .'</a></h2>';
 
-        echo '<br /><a href="'. get_term_link($cat->slug, 'product_cat') .'">'. $cat->name .'</a>'; ?>
-
-
-           <?php  
-							
-							$args = array( 'post_type' => 'product', 'posts_per_page' => 10, 'product_cat' => $cat->name );
-
+							$args = array( 'post_type' => 'product', 'posts_per_page' => 5, 'product_cat' => $cat->name );
 							$loop = new WP_Query( $args );
+							echo '<ul class="products">';
+							while ( $loop->have_posts() ) : $loop->the_post();
+								global $product;
+								woocommerce_get_template_part( 'content', 'product' );
+							endwhile;
+							echo '</ul>';
+							wp_reset_query();
 
 
-							while ( $loop->have_posts() ) : $loop->the_post(); 
-							global $product; 
-
-					woocommerce_get_template_part( 'content', 'product' );
-							endwhile; 
-
-
-							wp_reset_query(); 
-
-					?>
-
-
-    <?php }     
-}
-?>
-			
+					}
+				}
+				
+			}
+			?>
 
 		
-		
-		
-		
-		
-			<?php woocommerce_product_loop_start(); ?>
+			<?php
 
-				<?php woocommerce_product_subcategories(); ?>
+				if(!is_shop()) {
+					woocommerce_product_loop_start();
 
-				<?php while ( have_posts() ) : the_post(); ?>
+					woocommerce_product_subcategories();
 
-					<?php wc_get_template_part( 'content', 'product' ); ?>
+					while ( have_posts() ) : the_post();
 
-				<?php endwhile; // end of the loop. ?>
+					wc_get_template_part( 'content', 'product' );
 
-			<?php woocommerce_product_loop_end(); ?>
+					endwhile; // end of the loop.
+
+					woocommerce_product_loop_end();
+				}
+			?>
 
 			<?php
 				/**

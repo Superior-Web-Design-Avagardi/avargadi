@@ -36,6 +36,7 @@ function addTopNav() {
 }
 add_action('thematic_aboveheader', 'addTopNav');
 
+
 /**
  * Define theme setup
  */
@@ -43,6 +44,19 @@ function samplechildtheme_setup() {
 	// Add any additional functionality for your theme here
 }
 add_action( 'after_setup_theme', 'samplechildtheme_setup' );
+
+
+/*
+ * Remove sorting on the shop page
+ */
+function init() {
+	if(is_shop()) {
+		remove_action( 'woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 30 );
+	}
+}
+
+add_action( 'wp', 'init' );
+
 
 /*
  * Shows 12 products per page
