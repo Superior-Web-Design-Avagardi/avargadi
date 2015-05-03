@@ -794,7 +794,7 @@ a.cart-parent > .contents {
 .description_tab > a,
 .additional_information_tab > a {
   font-weight: 500!important;
-  padding: 6px 16px!important;
+  padding: 6px 14px!important;
 }
 .commentlist {
   padding: 0;
@@ -929,6 +929,17 @@ td.actions {
 .woocommerce div.product p.price,
 .woocommerce div.product span.price {
   display: block;
+}
+.woocommerce table.shop_attributes {
+  border-top: #DDD solid 1px;
+  border-bottom: #DDD solid 1px;
+}
+.woocommerce table.shop_attributes th {
+  border: none;
+  font-weight: normal!important;
+}
+.woocommerce table.shop_attributes td {
+  font-style: normal;
 }
 .slider-wrapper {
   border-bottom: #DDD solid 2px;
@@ -1089,5 +1100,11 @@ td.actions {
   }
   #order_review {
     width: 100%;
+  }
+  .reviews_tab > a,
+  .description_tab > a,
+  .additional_information_tab > a {
+    font-weight: 500!important;
+    padding: 4px 6px!important;
   }
 }
