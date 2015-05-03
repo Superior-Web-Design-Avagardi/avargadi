@@ -704,7 +704,8 @@ select {
  * ---------------------------------------------------------------- */
 #footer {
   padding: 32px 0;
-  background-color: #34495e;
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAHCAYAAADEUlfTAAAAOElEQVQIW2MMT838z4AFvHr5koERmyRIQkxcHFMSJgEyDEUnsgSKJLoEXBKbBFjS0S/oP8hybAAAei4gwLWs5XUAAAAASUVORK5CYII=) repeat;
+  box-shadow: inset 0 1px 2px 1px rgba(0, 0, 0, 0.08);
 }
 #footer a {
   color: #DDD;
@@ -774,6 +775,12 @@ a.cart-parent > .contents {
 .widget_shopping_cart_content {
   background-color: #FFF;
   padding: 12px;
+}
+.cart-tab.right:hover {
+  right: -22em;
+}
+.cart-tab.right.hover {
+  right: 0;
 }
 /* ----------------------------------------------------------------
  * $misc
@@ -919,6 +926,13 @@ td.actions {
 .pinterest-btn {
   margin: 15px 0;
 }
+.woocommerce div.product p.price,
+.woocommerce div.product span.price {
+  display: block;
+}
+.slider-wrapper {
+  border-bottom: #DDD solid 2px;
+}
 /* ----------------------------------------------------------------
  * $lightbox
  * ---------------------------------------------------------------- */
@@ -1026,12 +1040,28 @@ td.actions {
   .top_menu > .menu > li:last-child {
     float: none;
   }
+  #access ul {
+    padding: 8px;
+    box-sizing: border-box;
+  }
   #access ul > li {
-    width: auto;
+    width: 100%;
+    margin-bottom: 8px;
+  }
+  #access ul > li:last-child {
+    margin-bottom: 0;
   }
   #access ul > li > a {
+    width: 100%;
     padding: 4px 16px;
     font-size: 0.8em;
+    font-weight: 500;
+    background-color: #EEE;
+    border-radius: 3px;
+  }
+  .footer-inner > .col-3 {
+    border-top: #DDD solid 1px;
+    margin-bottom: 8px;
   }
   .woocommerce ul.products li.product,
   .woocommerce-page ul.products li.product {

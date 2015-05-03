@@ -321,7 +321,8 @@ select {
 #footer {
 	padding: 32px 0;
 	
-	background-color: rgb(52,73,94);
+	background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAHCAYAAADEUlfTAAAAOElEQVQIW2MMT838z4AFvHr5koERmyRIQkxcHFMSJgEyDEUnsgSKJLoEXBKbBFjS0S/oP8hybAAAei4gwLWs5XUAAAAASUVORK5CYII=) repeat;
+	box-shadow: inset 0 1px 2px 1px rgba(0, 0, 0, 0.08);
 }
 
 #footer a {
@@ -411,6 +412,14 @@ a.cart-parent > .contents {
 .widget_shopping_cart_content {
 	background-color: #FFF;
 	padding: 12px;
+}
+
+.cart-tab.right:hover {
+	right:-22em;
+}
+
+.cart-tab.right.hover {
+	right:0;
 }
 
 
@@ -596,6 +605,15 @@ td.actions {
 
 .pinterest-btn {
 	margin:15px 0;
+}
+
+.woocommerce div.product p.price,
+.woocommerce div.product span.price {
+	display: block;
+}
+
+.slider-wrapper {
+	border-bottom: #DDD solid 2px;
 }
 
 

@@ -23,118 +23,101 @@
  * Any style declarations written in style.css will override the parent styles.
  */
 
- /**
- * In this file mentally replase the word 'logo' for 'background' and vise versa
+/**
+ * In this file mentally replace the word 'logo' for 'background' and vise versa
  */
+
+
+// Default function included with thematic
 function samplechildtheme_add_thematic_styledependency() {
 	return array( 'thematic-main' );  
 }
 add_action( 'thematic_childtheme_style_dependencies', 'samplechildtheme_add_thematic_styledependency' );
 
+// Adds top navigation
 function addTopNav() {
 	wp_nav_menu( array( 'theme_location' => 'top-menu', 'container_class' => 'top_menu' ) );
 }
 add_action('thematic_aboveheader', 'addTopNav');
 
-
 /**
- * Define theme setup
+ * Use WC 2.0 variable price format, now include sale price strikeout
+ *
+ * @param  string $price
+ * @param  object $product
+ * @return string
  */
-function samplechildtheme_setup() {
-	// Add any additional functionality for your theme here
+function wc_wc20_variation_price_format( $price, $product ) {
+	// Main Price
+	$prices = array( $product->get_variation_price( 'min', true ), $product->get_variation_price( 'max', true ) );
+	$price = $prices[0] !== $prices[1] ? sprintf( __( 'From: %1$s', 'woocommerce' ), wc_price( $prices[0] ) ) : wc_price( $prices[0] );
+
+	// Sale Price
+	$prices = array( $product->get_variation_regular_price( 'min', true ), $product->get_variation_regular_price( 'max', true ) );
+	sort( $prices );
+	$saleprice = $prices[0] !== $prices[1] ? sprintf( __( 'From: %1$s', 'woocommerce' ), wc_price( $prices[0] ) ) : wc_price( $prices[0] );
+
+	if ( $price !== $saleprice ) {
+		$price = '<del>' . $saleprice . '</del> <ins>' . $price . '</ins>';
+	}
+
+	return $price;
 }
-add_action( 'after_setup_theme', 'samplechildtheme_setup' );
+add_filter( 'woocommerce_variable_sale_price_html', 'wc_wc20_variation_price_format', 10, 2 );
+add_filter( 'woocommerce_variable_price_html', 'wc_wc20_variation_price_format', 10, 2 );
 
-
-/*
- * Remove sorting on the shop page
- */
+// Removes sorting on the shop page
 function init() {
 	if(is_shop()) {
 		remove_action( 'woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 30 );
 	}
 }
-
 add_action( 'wp', 'init' );
 
-
-/*
- * Shows 12 products per page
- */
+// Shows 12 products per page
 add_filter( 'loop_shop_per_page', create_function( '$cols', 'return 12;' ), 20 );
-/*
- * Remove billing form
- */
-/*add_filter( 'woocommerce_checkout_fields' , 'custom_override_checkout_fields' );
- 
-function custom_override_checkout_fields( $fields ) {
-    unset($fields['billing']['billing_first_name']);
-    unset($fields['billing']['billing_last_name']);
-    unset($fields['billing']['billing_company']);
-    unset($fields['billing']['billing_address_1']);
-    unset($fields['billing']['billing_address_2']);
-    unset($fields['billing']['billing_city']);
-    unset($fields['billing']['billing_postcode']);
-    unset($fields['billing']['billing_country']);
-    unset($fields['billing']['billing_state']);
-    unset($fields['billing']['billing_phone']);
-    unset($fields['order']['order_comments']);
-    unset($fields['billing']['billing_address_2']);
-    unset($fields['billing']['billing_postcode']);
-    unset($fields['billing']['billing_company']);
-    unset($fields['billing']['billing_last_name']);
-    unset($fields['billing']['billing_email']);
-    unset($fields['billing']['billing_city']);
-    return $fields;
-}*/
-
-/*
- * Custom theme  modifications
- */
 
 
- //-------------- Defines New Menu
- // register two additional custom menus
+
+// Defines custom menu
 function childtheme_register_menus() {
-    if (function_exists( 'register_nav_menu' )) {
-        echo '';
-    }
+	if (function_exists( 'register_nav_menu' )) {
+		echo '';
+	}
 }
 add_action('thematic_child_init', 'childtheme_register_menus');
 
-
-function add_fonts() { ?>
+// Adds custom fonts and script
+function add_fonts() {
+	?>
 	<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;">
 	<link href='http://fonts.googleapis.com/css?family=Roboto:400,500' rel='stylesheet' type='text/css'>
-<?php }
+	<script type="text/javascript" src="<?php bloginfo('wpurl'); ?>/wp-content/themes/avargadi/js/app.js"></script>
+<?php
+}
 add_action('wp_head', 'add_fonts');
 
-
+// Adds proper classes and markup to the header
 function modify_header() {
 	echo '<div id="header"><nav id="header-nav" class="clearfix">';
-	/*if (is_page('Shop')) {
-		echo '<h';	
-	} else {
-		echo '<div id="header"><nav id="header-nav" class="clearfix">';
-	}*/
 }
 
-
-
+// Adds proper closing markup to the header
 function modify_header_bottom() {
 	echo '</nav></div>';
 }
 
-
-/* Remove the 'showing xx results' on the category page */
+// Remove the 'showing xx results' on the category page
 remove_action( 'woocommerce_before_shop_loop', 'woocommerce_result_count', 20 );
 
-// ---------- "Child Theme Options" menu STARTS HERE
 
-add_action('admin_menu' , 'childtheme_add_admin');
+/*---- CHILD THEME OPTIONS starts here ----*/
+// Adds menu to the child theme
 function childtheme_add_admin() {
 	add_submenu_page('themes.php', 'Avargadi Theme Options', 'Avargadi Theme Options', 'edit_themes', basename(__FILE__), 'childtheme_admin');
 }
+add_action('admin_menu' , 'childtheme_add_admin');
+
 
 function childtheme_admin() {
 	
@@ -296,8 +279,8 @@ function childtheme_admin() {
 	<?php
 }
 
+/*---- CHILD THEME OPTIONS ends here ----*/
 
-// ---------- "Child Theme Options" menu ENDS HERE
 
 if(TRUE) {
 	
@@ -323,6 +306,7 @@ function thematic_header_logo(){
 }
 add_action('thematic_header', 'thematic_header_logo', 4);
 
+
 /*---- Footer Options ----*/
 
 function childtheme_override_siteinfoopen(){
@@ -334,50 +318,33 @@ function childtheme_override_siteinfoclose(){
 }
 
 function childtheme_override_siteinfo(){
-    echo '<div class="footer-inner row">
-            <div class="col-3">
-            '.stripslashes(get_option('child_theme_footer_1')).'
-            </div>
-            <div class="col-3">
-            '.stripslashes(get_option('child_theme_footer_2')).'
-            </div>
-            <div class="col-3">
-            '.stripslashes(get_option('child_theme_footer_3')).'
-            </div>
-            <div class="col-3 last">
-            '.stripslashes(get_option('child_theme_footer_4')).'
-            </div>
-          </div>
-          <div class="copyright-info">
-            '.stripslashes(get_option('child_theme_copyright')).'
-          </div>
-            ';
+	echo '<div class="footer-inner row">
+				<div class="col-3">
+				'.stripslashes(get_option('child_theme_footer_1')).'
+				</div>
+				<div class="col-3">
+				'.stripslashes(get_option('child_theme_footer_2')).'
+				</div>
+				<div class="col-3">
+				'.stripslashes(get_option('child_theme_footer_3')).'
+				</div>
+				<div class="col-3 last">
+				'.stripslashes(get_option('child_theme_footer_4')).'
+				</div>
+			</div>
+			<div class="copyright-info">
+				'.stripslashes(get_option('child_theme_copyright')).'
+			</div>
+				';
 }
 
-/*function childtheme_copyright_info(){
-    echo '<div class="footer-inner">
-            Copyright Info
-          </div>';
-}
-add_action('thematic_belowfooter', 'childtheme_copyright_info', 4);*/
-
-
-/*function modify_homepage_content() {
-	echo '<h1>Haaaa</h1>';
-}
-
-add_filter('thematic_opencontainer', 'modify_homepage_content');*/
-
-//Display product category descriptions under category image/title on woocommerce shop page */
-
+// Adds description to category
 function my_add_cat_description ($category) {
 	$cat_id=$category->term_id;
 	$prod_term=get_term($cat_id,'product_cat');
 	$description=$prod_term->description;
 	echo '<div class="shop-cat-desc">'.$description.'</div>';
 }
-
-
 add_action( 'woocommerce_after_subcategory_title', 'my_add_cat_description', 12);
 
 
