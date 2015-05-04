@@ -321,7 +321,7 @@ select {
 #footer {
 	padding: 32px 0;
 	
-	background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAHCAYAAADEUlfTAAAAOElEQVQIW2MMT838z4AFvHr5koERmyRIQkxcHFMSJgEyDEUnsgSKJLoEXBKbBFjS0S/oP8hybAAAei4gwLWs5XUAAAAASUVORK5CYII=) repeat;
+	background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAAQ0lEQVQYV2P0jkz7//3bFwZsACTO6OQf9R+XpJCIBHYFIJ0gSawmIEuCTEaxAl0SRQE2SbgCXJJgBZaufv9hDsLmGwCCBzlZc92Z7gAAAABJRU5ErkJggg==) repeat;
 	box-shadow: inset 0 1px 2px 1px rgba(0, 0, 0, 0.08);
 }
 
@@ -499,7 +499,9 @@ body.page {
 
 th,
 td {
-	font-weight: 500!important;
+	padding: 4px 8px;
+	text-align: center;
+	font-weight: normal!important;
 }
 
 .woocommerce #content table.cart td.actions .input-text,
@@ -612,7 +614,8 @@ td.actions {
 	display: block;
 }
 
-.woocommerce table.shop_attributes {
+.woocommerce table.shop_attributes, table {
+	padding: 4px 0;
 	border-top:#DDD solid 1px;
 	border-bottom:#DDD solid 1px;
 }
@@ -624,10 +627,15 @@ td.actions {
 
 .woocommerce table.shop_attributes td {
 	font-style: normal;
+	border:none;
 }
 
 .slider-wrapper {
 	border-bottom: #DDD solid 2px;
+}
+
+.woocommerce .related ul li.product, .woocommerce .related ul.products li.product, .woocommerce .upsells.products ul li.product, .woocommerce .upsells.products ul.products li.product, .woocommerce-page .related ul li.product, .woocommerce-page .related ul.products li.product, .woocommerce-page .upsells.products ul li.product, .woocommerce-page .upsells.products ul.products li.product {
+	width: 18%;
 }
 
 
