@@ -40,9 +40,9 @@
 		cartButton.addEventListener('mouseover', function(e) {
 			handleTouch(cart);
 		}, false);
-		cartButton.addEventListener('touchstart', function(e) {
+		/*cartButton.addEventListener('touchstart', function(e) {
 			handleTouch(cart);
-		}, false);
+		}, false);*/
 	}
 
 
