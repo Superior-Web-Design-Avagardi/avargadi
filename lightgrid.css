@@ -1169,10 +1169,10 @@ table p {
     height: 64px;
     left: -64px;
     padding: 8px;
-    background-color: rgba(26, 188, 156, 0.7);
+    background-color: rgba(26, 188, 156, 0.65);
   }
   .cart-tab.right a.cart-parent:after {
     border-width: 32px 16px 32px 0;
-    border-color: transparent rgba(26, 188, 156, 0.7) transparent transparent;
+    border-color: transparent rgba(26, 188, 156, 0.65) transparent transparent;
   }
 }

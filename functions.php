@@ -236,17 +236,17 @@ function childtheme_admin() {
 						<td width="200">Check this box to display background image:</td>
 						<td><input type="checkbox" name="enabled" value="1" <?php echo $checked; ?>/></td>
 					</tr>-->
-					<tr>
+<!--					<tr>
 						<td>Background image:</td>
 						<td><img style="width:256px;height:auto" src="<?php echo $child_theme_image; ?>" /></td>
-					</tr>
-					<tr>
+					</tr>-->
+					<!--<tr>
 						<td>Background image to use (gif/jpeg/png):</td>
 						<td><input type="file" name="logo_image"><br />(you must have writing permissions for your uploads directory)</td>
-					</tr>
+					</tr>-->
 				</table>
-                <table class="form-table">
-                    <tr><h2>Logo</h2></tr>
+        <table class="form-table">
+          <tr><h2>Logo</h2></tr>
 					<tr>
 						<td>Logo Image:</td>
 						<td><img style="width:256px;height:auto" src="<?php echo $child_theme_header_logo; ?>" /></td>
