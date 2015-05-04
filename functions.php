@@ -88,10 +88,22 @@ function childtheme_register_menus() {
 }
 add_action('thematic_child_init', 'childtheme_register_menus');
 
-// Adds custom fonts and script
+// Adds custom fonts and script and favicons
 function add_fonts() {
 	?>
 	<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;">
+	<link rel="apple-touch-icon" sizes="57x57" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/avargadi/favicons/apple-touch-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/avargadi/favicons/apple-touch-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/avargadi/favicons/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/avargadi/favicons/apple-touch-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/avargadi/favicons/apple-touch-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/avargadi/favicons/apple-touch-icon-120x120.png">
+	<link rel="icon" type="image/png" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/avargadi/favicons/favicon-32x32.png" sizes="32x32">
+	<link rel="icon" type="image/png" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/avargadi/favicons/favicon-96x96.png" sizes="96x96">
+	<link rel="icon" type="image/png" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/avargadi/favicons/favicon-16x16.png" sizes="16x16">
+	<link rel="manifest" href="<?php bloginfo('wpurl'); ?>/wp-content/themes/avargadi/favicons/manifest.json">
+	<meta name="msapplication-TileColor" content="#da532c">
+	<meta name="theme-color" content="#ffffff">
 	<link href='http://fonts.googleapis.com/css?family=Roboto:400,500' rel='stylesheet' type='text/css'>
 	<script type="text/javascript" src="<?php bloginfo('wpurl'); ?>/wp-content/themes/avargadi/js/app.js"></script>
 <?php
