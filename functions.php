@@ -129,6 +129,7 @@ function childtheme_admin() {
     $child_theme_footer_3    = get_option('child_theme_footer_3');
     $child_theme_footer_4    = get_option('child_theme_footer_4');
 		$child_theme_analytics   = get_option('child_theme_analytics'); // Analytics
+		$child_theme_advertising = get_option('child_theme_advertising'); // Advertising
     $child_theme_copyright   = get_option('child_theme_copyright');
 	$enabled = TRUE; /* get_option('child_theme_logo_enabled'); */
 	
@@ -164,6 +165,10 @@ function childtheme_admin() {
 				$child_theme_analytics = $_POST['footer_5'];
             //echo '<div class="updated"><h4>Footer Area 5 Updated Successfully</h4></div>';
 		    update_option('child_theme_analytics', $child_theme_analytics);
+		
+				$child_theme_advertising = $_POST['footer_6'];
+            //echo '<div class="updated"><h4>Footer Area 5 Updated Successfully</h4></div>';
+		    update_option('child_theme_advertising', $child_theme_advertising);
 
         $child_theme_copyright = $_POST['copyright_info'];
             //echo '<div class="updated"><h4>Copyright Information Updated Successfully</h4></div>';
@@ -256,41 +261,37 @@ function childtheme_admin() {
 					<tr>
 						<td>Area 1:</td>
 						<td><p>Enter text for area 1 <br /></p>
-							<textarea name="footer_1" >
-							<?php echo stripslashes($child_theme_footer_1); ?>
-							</textarea>
+							<textarea name="footer_1" ><?php echo stripslashes($child_theme_footer_1); ?></textarea>
 						</td>
 					</tr>
 					<tr>
 						<td>Area 2:</td>
 						<td><p>Enter text for area 2 <br /></p>
-							<textarea name="footer_2">
-							<?php echo stripslashes($child_theme_footer_2); ?>
-							</textarea>
+							<textarea name="footer_2"><?php echo stripslashes($child_theme_footer_2); ?></textarea>
 						</td>
 					</tr>
           <tr>
 						<td>Area 3:</td>
 						<td><p>Enter text for area 3 <br /></p>
-							<textarea name="footer_3">
-							<?php echo stripslashes($child_theme_footer_3); ?>
-							</textarea>
+							<textarea name="footer_3"><?php echo stripslashes($child_theme_footer_3); ?></textarea>
 						</td>
 					</tr>
           <tr>
 						<td>Area 4:</td>
 						<td><p>Enter text for area 4 <br /></p>
-							<textarea name="footer_4">
-							<?php echo stripslashes($child_theme_footer_4); ?>
-							</textarea>
+							<textarea name="footer_4"><?php echo stripslashes($child_theme_footer_4); ?></textarea>
 						</td>
 					</tr>
 					<tr>
 						<td>Analytics scripts</td>
 						<td><p>Place all your analytics code here<br /></p>
-							<textarea name="footer_5">
-							<?php echo stripslashes($child_theme_analytics); ?>
-							</textarea>
+							<textarea name="footer_5"><?php echo stripslashes($child_theme_analytics); ?></textarea>
+						</td>
+					</tr>
+					<tr>
+						<td>Advertising scripts</td>
+						<td><p>Place all your advertising code here<br /></p>
+							<textarea name="footer_6"><?php echo stripslashes($child_theme_advertising); ?></textarea>
 						</td>
 					</tr>
 					<tr>
@@ -379,7 +380,9 @@ add_action( 'woocommerce_after_subcategory_title', 'my_add_cat_description', 12)
 
 add_filter('thematic_close_header','modify_header_bottom');
 
+// Adds analytics and advertising scripts
 function addAnalytics() {
 	echo stripslashes(get_option('child_theme_analytics'));
+	echo stripslashes(get_option('child_theme_advertising'));
 }
 add_action('thematic_belowfooter', 'addAnalytics');
