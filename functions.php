@@ -115,7 +115,7 @@ remove_action( 'woocommerce_before_shop_loop', 'woocommerce_result_count', 20 );
 /*---- CHILD THEME OPTIONS starts here ----*/
 // Adds menu to the child theme
 function childtheme_add_admin() {
-	add_submenu_page('themes.php', 'Avargadi Theme Options', 'Avargadi Theme Options', 'edit_themes', basename(__FILE__), 'childtheme_admin');
+	add_submenu_page('themes.php', 'Wombat home Theme Options', 'Wombat home Theme Options', 'edit_themes', basename(__FILE__), 'childtheme_admin');
 }
 add_action('admin_menu' , 'childtheme_add_admin');
 
@@ -228,7 +228,7 @@ function childtheme_admin() {
 	?>
 		<div class="wrap">
 			<div id="icon-themes" class="icon32"></div>
-			<h1>Child Theme Options</h1>
+			<h1>Wombat home Theme Options</h1>
 			<form name="theform" method="post" enctype="multipart/form-data" action="<?php echo str_replace( '%7E', '~', $_SERVER['REQUEST_URI']);?>">
 				<table class="form-table">
                     <tr><h2>Background Image</h2></tr>
@@ -248,7 +248,7 @@ function childtheme_admin() {
         <table class="form-table">
           <tr><h2>Logo</h2></tr>
 					<tr>
-						<td>Logo Image:</td>
+						<td>Logo Image(minimun width should be 320px):</td>
 						<td><img style="width:256px;height:auto" src="<?php echo $child_theme_header_logo; ?>" /></td>
 					</tr>
 					<tr>
