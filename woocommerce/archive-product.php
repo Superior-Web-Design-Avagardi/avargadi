@@ -72,15 +72,20 @@ get_header( 'shop' ); ?>
 				foreach ($all_categories as $cat) {
 					if($cat->category_parent == 0) {
 						$category_id = $cat->term_id;
-						echo '<h2 class="category-title"><a href="'. get_term_link($cat->slug, 'product_cat') .'">'. $cat->name .'</a></h2>';
-
+						$term = get_term( $cat->term_id, 'product_cat' );
+						$count = $term->count;
+						if($count >= 1) {
+							echo '<h2 class="category-title"><a href="'. get_term_link($cat->slug, 'product_cat') .'">'. $cat->name .'</a></h2>';
+						}
 							$args = array( 'post_type' => 'product', 'posts_per_page' => 5, 'product_cat' => $cat->name );
 							$loop = new WP_Query( $args );
 							echo '<ul class="products">';
-							while ( $loop->have_posts() ) : $loop->the_post();
-								global $product;
-								woocommerce_get_template_part( 'content', 'product' );
-							endwhile;
+							if($count >= 1) {
+								while ( $loop->have_posts() ) : $loop->the_post();
+									global $product;
+									woocommerce_get_template_part( 'content', 'product' );
+								endwhile;
+							}
 							echo '</ul>';
 							wp_reset_query();
 

@@ -22,6 +22,10 @@
 	.product {
 		padding: 8px!important;
 	}
+	
+	#access ul > li > a {
+		padding: 4px 16px;
+	}
 }
 
 @media only screen and (min-width : 1px) and (max-width : 768px) {
@@ -173,6 +177,19 @@
 	.additional_information_tab > a {
 		font-weight: 500!important;
 		padding: 4px 6px!important;
+	}
+	
+	.cart-tab.right a.cart-parent {
+		width: 64px;
+		height: 64px;
+		left: -64px;
+		padding: 8px;
+		background-color: fade(@brand1, 70%);
+	}
+	
+	.cart-tab.right a.cart-parent:after {
+		border-width: 32px 16px 32px 0;
+		border-color: transparent fade(@brand1, 70%) transparent transparent;
 	}
 
 }
