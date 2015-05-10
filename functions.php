@@ -78,8 +78,6 @@ add_action( 'wp', 'init' );
 // Shows 12 products per page
 add_filter( 'loop_shop_per_page', create_function( '$cols', 'return 12;' ), 20 );
 
-
-
 // Defines custom menu
 function childtheme_register_menus() {
 	if (function_exists( 'register_nav_menu' )) {
@@ -398,3 +396,70 @@ function addAnalytics() {
 	echo stripslashes(get_option('child_theme_advertising'));
 }
 add_action('thematic_belowfooter', 'addAnalytics');
+
+/**
+* Show all product attributes on the product page
+*/
+function isa_woocommerce_all_pa(){
+
+	global $product;
+	$attributes = $product->get_attributes();
+
+	if ( ! $attributes ) {
+		return;
+	}
+
+	$out = '';
+
+	foreach ( $attributes as $attribute ) {
+
+	// skip variations
+	if ( $attribute['is_variation'] ) {
+	continue;
+	}
+
+	if ( $attribute['is_taxonomy'] ) {
+
+		$terms = wp_get_post_terms( $product->id, $attribute['name'], 'all' );
+
+		// get the taxonomy
+		$tax = $terms[0]->taxonomy;
+
+		// get the tax object
+		$tax_object = get_taxonomy($tax);
+
+		// get tax label
+		if ( isset ($tax_object->labels->name) ) {
+			$tax_label = $tax_object->labels->name;
+		} elseif ( isset( $tax_object->label ) ) {
+			$tax_label = $tax_object->label;
+		}
+
+		foreach ( $terms as $term ) {
+
+			$out .= $tax_label . ': ';
+			$out .= $term->name . '<br />';
+
+		}
+
+		} else {
+			$out .= $attribute['name'] . ': ';
+			$out .= $attribute['value'] . '<br />';
+		}
+	}
+	echo $out;
+}
+
+add_action('woocommerce_single_product_summary', 'isa_woocommerce_all_pa', 25);
+
+//Add Woocommerce body classes
+add_filter('body_class','ttm_woocommerce_body_classes');
+function ttm_woocommerce_body_classes($classes){
+	global $post;
+	$product = get_product( $post->ID );
+
+	if(is_shop()) {
+		$classes[] = 'shop';
+	}
+	return $classes;
+}
