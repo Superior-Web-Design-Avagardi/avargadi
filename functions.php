@@ -471,3 +471,10 @@ function woo_remove_product_tabs( $tabs ) {
 	unset( $tabs['additional_information'] );  	// Remove the additional information tab
 	return $tabs;
 }
+
+// Remove trailing zeros on product prices
+add_filter( 'woocommerce_price_trim_zeros', 'wc_hide_trailing_zeros', 10, 1 );
+	function wc_hide_trailing_zeros( $trim ) {
+	// set to false to show trailing zeros
+	return true;
+}

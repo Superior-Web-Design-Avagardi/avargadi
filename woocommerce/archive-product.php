@@ -50,7 +50,7 @@ get_header( 'shop' ); ?>
 				 * Arranges shop page to display categories and their corresponding products
 				 */
 				$taxonomy     = 'product_cat';
-				$orderby      = 'name';  
+				$orderby      = 'desc';  
 				$show_count   = 0;      // 1 for yes, 0 for no
 				$pad_counts   = 0;      // 1 for yes, 0 for no
 				$hierarchical = 0;      // 1 for yes, 0 for no  
@@ -68,16 +68,37 @@ get_header( 'shop' ); ?>
 				);
 
 				$all_categories = get_categories( $args );
-
+				
+				// Show 'featured' category first
 				foreach ($all_categories as $cat) {
-					if($cat->category_parent == 0) {
+					if($cat->name === 'Featured') {
+						echo '<h2 class="category-title"><a href="'. get_term_link($cat->slug, 'product_cat') .'">'. $cat->name .'</a></h2>';
+						$category_id = $cat->term_id;
+						$term = get_term( $cat->term_id, 'product_cat' );
+						$count = $term->count;
+						$args = array( 'post_type' => 'product', 'posts_per_page' => 4, 'product_cat' => $cat->name );
+						$loop = new WP_Query( $args );
+						echo '<ul class="products">';
+						if($count >= 1) {
+							while ( $loop->have_posts() ) : $loop->the_post();
+								global $product;
+								woocommerce_get_template_part( 'content', 'product' );
+							endwhile;
+						}
+						echo '</ul>';
+						wp_reset_query();
+					}
+				}
+				// Show all other categories excluding featured
+				foreach ($all_categories as $cat) {
+					if($cat->category_parent == 0 && $cat->name != 'Featured') {
 						$category_id = $cat->term_id;
 						$term = get_term( $cat->term_id, 'product_cat' );
 						$count = $term->count;
 						if($count >= 1) {
 							echo '<h2 class="category-title"><a href="'. get_term_link($cat->slug, 'product_cat') .'">'. $cat->name .'</a></h2>';
 						}
-							$args = array( 'post_type' => 'product', 'posts_per_page' => 5, 'product_cat' => $cat->name );
+							$args = array( 'post_type' => 'product', 'posts_per_page' => 4, 'product_cat' => $cat->name );
 							$loop = new WP_Query( $args );
 							echo '<ul class="products">';
 							if($count >= 1) {
