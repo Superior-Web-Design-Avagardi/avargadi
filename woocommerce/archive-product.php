@@ -89,6 +89,7 @@ get_header( 'shop' ); ?>
 						wp_reset_query();
 					}
 				}
+				
 				// Show all other categories excluding featured
 				foreach ($all_categories as $cat) {
 					if($cat->category_parent == 0 && $cat->name != 'Featured') {
@@ -109,12 +110,9 @@ get_header( 'shop' ); ?>
 							}
 							echo '</ul>';
 							wp_reset_query();
-
-
+						}
 					}
 				}
-				
-			}
 			?>
 
 		
