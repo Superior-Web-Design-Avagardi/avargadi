@@ -928,7 +928,7 @@ td.actions {
 }
 .woocommerce-cart table.cart td,
 .woocommerce-cart table.cart th {
-  text-align: center;
+  text-align: left;
 }
 .cart-empty {
   padding: 8px;

@@ -478,3 +478,9 @@ add_filter( 'woocommerce_price_trim_zeros', 'wc_hide_trailing_zeros', 10, 1 );
 	// set to false to show trailing zeros
 	return true;
 }
+
+if( isset( $_GET['showall'] ) ){ 
+    add_filter( 'loop_shop_per_page', create_function( '$cols', 'return -1;' ) ); 
+} else {
+    add_filter( 'loop_shop_per_page', create_function( '$cols', 'return 12;' ) );
+}
