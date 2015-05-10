@@ -14,9 +14,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 global $product;
 
 ?>
+<?php echo $product->get_dimensions(); ?>
 <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
 
-	
+
 
 	<meta itemprop="price" content="<?php echo $product->get_price(); ?>" />
 	<meta itemprop="priceCurrency" content="<?php echo get_woocommerce_currency(); ?>" />
