@@ -598,6 +598,10 @@ body,
   padding: 4px 12px;
   text-align: center;
 }
+body.single.single-product .price {
+  border: #1abc9c solid 1px;
+  border-radius: 3px;
+}
 .preview-item-title {
   padding: 4px 0!important;
   text-align: center;

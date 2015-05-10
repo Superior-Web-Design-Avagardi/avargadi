@@ -445,6 +445,7 @@ function isa_woocommerce_all_pa(){
 		} else {
 			$out .= $attribute['name'] . ': ';
 			$out .= $attribute['value'] . '<br />';
+			echo $out;
 		}
 	}
 	echo $out;
@@ -462,4 +463,11 @@ function ttm_woocommerce_body_classes($classes){
 		$classes[] = 'shop';
 	}
 	return $classes;
+}
+
+add_filter( 'woocommerce_product_tabs', 'woo_remove_product_tabs', 98 );
+
+function woo_remove_product_tabs( $tabs ) {
+	unset( $tabs['additional_information'] );  	// Remove the additional information tab
+	return $tabs;
 }
